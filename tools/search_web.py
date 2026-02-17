@@ -1,8 +1,8 @@
 """
 tools/search_web.py — CLI tool for the digest agent.
 
-Uses Brave Search API (free tier: 2000 req/month).
-Falls back to DuckDuckGo HTML scraping if BRAVE_SEARCH_API_KEY is not set.
+Uses Brave Search API if BRAVE_SEARCH_API_KEY is set.
+Without a key, returns empty results (exit 0) so the agent can skip gracefully.
 
 Usage:
     python tools/search_web.py "<query>" [--limit N]
@@ -10,7 +10,7 @@ Usage:
 Env vars optional: BRAVE_SEARCH_API_KEY
 
 Output: JSON array to stdout. Each item: {title, url, description}
-Exit 0 on success, 1 on failure.
+Exit 0 on success or when search is unavailable, 1 on unexpected failure.
 """
 
 import sys
@@ -18,7 +18,6 @@ import os
 import json
 import argparse
 import requests
-from bs4 import BeautifulSoup
 
 
 def search_brave(query: str, limit: int = 5) -> list[dict]:
@@ -46,37 +45,12 @@ def search_brave(query: str, limit: int = 5) -> list[dict]:
     return results
 
 
-def search_duckduckgo(query: str, limit: int = 5) -> list[dict]:
-    """Fallback: scrape DuckDuckGo HTML (no API key needed, rate-limited)."""
-    headers = {"User-Agent": "Mozilla/5.0 (compatible; DailyDigestBot/2.0)"}
-    resp = requests.get(
-        "https://html.duckduckgo.com/html/",
-        params={"q": query},
-        headers=headers,
-        timeout=15,
-    )
-    resp.raise_for_status()
-
-    soup = BeautifulSoup(resp.text, "html.parser")
-    results = []
-    for result in soup.select(".result")[:limit]:
-        title_el = result.select_one(".result__title")
-        link_el  = result.select_one(".result__url")
-        snip_el  = result.select_one(".result__snippet")
-        title = title_el.get_text(strip=True) if title_el else ""
-        url   = link_el.get_text(strip=True)  if link_el  else ""
-        desc  = snip_el.get_text(strip=True)  if snip_el  else ""
-        if title:
-            results.append({"title": title, "url": url, "description": desc})
-
-    return results
-
-
 def search_web(query: str, limit: int = 5) -> list[dict]:
     if os.environ.get("BRAVE_SEARCH_API_KEY"):
         return search_brave(query, limit)
-    else:
-        return search_duckduckgo(query, limit)
+    # No API key available — return empty rather than attempting unreliable scraping
+    print("WARNING: BRAVE_SEARCH_API_KEY not set; web search unavailable.", file=sys.stderr)
+    return []
 
 
 def main() -> None:

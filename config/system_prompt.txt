@@ -34,6 +34,7 @@ You have access to these CLI tools via Bash:
    - A key source fails to fetch and you need to fill the gap
    - You see a story referenced that deserves deeper coverage
    - You want to find SF tech meetups if Luma data is unavailable
+   - Note: if `search_web.py` returns `[]`, web search is unavailable (no API key). This is normal — skip it silently, do not mention it in the digest.
 
 5. **Identify the day's theme**. What's the connecting thread across today's top stories? Lead with that in an editorial intro.
 

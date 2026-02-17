@@ -69,7 +69,7 @@ content_rules:
   # rather than by source (e.g. "Simon Willison")
 
 agent_directives:
-  enable_web_search: true
+  enable_web_search: true  # requires BRAVE_SEARCH_API_KEY; returns [] gracefully if not set
   web_search_triggers:
     - "If a known source fails to fetch, search for similar coverage"
     - "If there's a major AI news story referenced but not fully covered by sources"
