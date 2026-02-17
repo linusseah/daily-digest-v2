@@ -1,0 +1,66 @@
+name: Daily Digest v2
+
+on:
+  schedule:
+    # 15:00 UTC = 7:00 AM PST. In PDT (summer) change to 14:00 UTC.
+    - cron: "0 15 * * *"
+  workflow_dispatch:  # manual trigger from Actions tab
+
+jobs:
+  run-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (required for Claude Code CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run agent
+        id: agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY:    ${{ secrets.RESEND_API_KEY }}
+          GMAIL_ADDRESS:     ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASS:    ${{ secrets.GMAIL_APP_PASS }}
+          DIGEST_TO:         ${{ secrets.DIGEST_TO }}
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+        run: python agent.py
+        continue-on-error: true
+
+      - name: Run fallback if agent failed
+        if: steps.agent.outcome == 'failure'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY:    ${{ secrets.RESEND_API_KEY }}
+          GMAIL_ADDRESS:     ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASS:    ${{ secrets.GMAIL_APP_PASS }}
+          DIGEST_TO:         ${{ secrets.DIGEST_TO }}
+        run: python fallback.py
+
+      - name: Upload digest HTML as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-${{ github.run_id }}
+          path: |
+            /tmp/digest-v2.html
+            /tmp/fallback-digest.html
+            logs/
+          if-no-files-found: ignore

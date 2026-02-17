@@ -1,0 +1,79 @@
+user:
+  name: Linus
+  role: "MBA student and aspiring Solutions Architect"
+  email: linus.seah@kellogg.northwestern.edu
+  location: "San Francisco, CA"
+
+interests:
+  high_priority:
+    - AI agents and agentic systems
+    - LLM application architecture and best practices
+    - developer tools and DX (developer experience)
+    - AI research breakthroughs and new model releases
+    - robotics and embodied AI
+  medium_priority:
+    - venture capital and startup funding rounds
+    - product management practices
+    - product launches (Product Hunt, new tools)
+    - MBA / business strategy
+  low_priority:
+    - general tech news (only if significant)
+    - San Francisco local events (tech meetups, AI events preferred)
+    - cheap/free SF activities
+
+known_sources:
+  - name: "Simon Willison's Blog"
+    type: rss
+    url: "https://simonwillison.net/atom/everything/"
+    always_include: true
+    notes: "High signal. Always include top 3-4 posts."
+
+  - name: "TLDR Newsletter"
+    type: imap
+    sender: "dan@tldrnewsletter.com"
+    subject_keyword: "TLDR"
+    always_include: false
+    notes: "Good for headlines. Extract top 4-5 AI/tech stories."
+
+  - name: "TechCrunch Venture"
+    type: rss
+    url: "https://techcrunch.com/tag/venture/feed/"
+    always_include: false
+    notes: "Focus on AI/ML startup funding, skip general tech."
+
+  - name: "Product Hunt"
+    type: rss
+    url: "https://www.producthunt.com/feed"
+    always_include: false
+    notes: "Top 5 most interesting new products. Skip kitchen/lifestyle."
+
+  - name: "Lenny's Newsletter"
+    type: imap
+    sender: "lenny@lennysnewsletter.com"
+    subject_keyword: "Lenny"
+    always_include: true
+    notes: "Include even if paywalled — summarise what's available."
+
+  - name: "Funcheap SF"
+    type: rss
+    url: "https://feeds.feedburner.com/funcheapsf_recent_added_events/"
+    always_include: false
+    notes: "Only include if 3+ relevant events this week."
+
+content_rules:
+  max_digest_items: 20
+  min_relevance_score: 0.6
+  stale_after_hours: 48
+  prefer_themes_over_sources: true
+  # When true, the agent should group items by theme (e.g. "AI agents")
+  # rather than by source (e.g. "Simon Willison")
+
+agent_directives:
+  enable_web_search: true
+  web_search_triggers:
+    - "If a known source fails to fetch, search for similar coverage"
+    - "If there's a major AI news story referenced but not fully covered by sources"
+    - "To find SF tech meetups if Luma/Eventbrite data is unavailable"
+  max_web_searches: 3
+  output_format: "html_file"
+  html_output_path: "/tmp/digest-v2.html"
