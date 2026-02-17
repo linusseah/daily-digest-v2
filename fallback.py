@@ -36,7 +36,7 @@ ANTHROPIC_MODEL   = "claude-haiku-4-5"
 
 SOURCES = [
     ("simon",       "rss",  "https://simonwillison.net/atom/everything/",                  8),
-    ("techcrunch",  "rss",  "https://techcrunch.com/tag/venture/feed/",                   10),
+    ("techcrunch",  "rss",  "https://techcrunch.com/feed/",                               10),
     ("producthunt", "rss",  "https://www.producthunt.com/feed",                           20),
     ("funcheap",    "rss",  "https://feeds.feedburner.com/funcheapsf_recent_added_events/", 20),
     ("tldr",        "imap", ("dan@tldrnewsletter.com", "TLDR"),                            None),

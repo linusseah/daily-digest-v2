@@ -14,6 +14,7 @@ import sys
 import os
 import json
 import email
+import email.message
 import imaplib
 import argparse
 from bs4 import BeautifulSoup

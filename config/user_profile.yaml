@@ -37,7 +37,7 @@ known_sources:
 
   - name: "TechCrunch Venture"
     type: rss
-    url: "https://techcrunch.com/tag/venture/feed/"
+    url: "https://techcrunch.com/feed/"
     always_include: false
     notes: "Focus on AI/ML startup funding, skip general tech."
 
