@@ -41,6 +41,7 @@ jobs:
           GMAIL_APP_PASS:    ${{ secrets.GMAIL_APP_PASS }}
           DIGEST_TO:         ${{ secrets.DIGEST_TO }}
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          EXA_API_KEY:          ${{ secrets.EXA_API_KEY }}
         run: python agent.py
         continue-on-error: true
 
