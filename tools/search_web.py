@@ -34,6 +34,7 @@ def search_exa(query: str, limit: int = 5) -> list[dict]:
             "numResults": limit,
             "useAutoprompt": True,
             "type": "neural",
+            "contents": {"summary": {"query": query}},
         },
         timeout=15,
     )
