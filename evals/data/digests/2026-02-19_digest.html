@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Thursday, February 19, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .date {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 32px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        h2 {
+            color: #0066cc;
+            font-size: 20px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 8px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+        .item-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            color: #0066cc;
+        }
+        .item-description {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus</h1>
+        <div class="date">Thursday, February 19, 2026</div>
+
+        <div class="intro">
+            <strong>AI's infrastructure moment has arrived.</strong> While the industry spent 2024-2025 racing to build smarter models, this week marks a turning point: OpenAI is closing a record-breaking $100B+ funding round at an $850B valuation, India announced $110B+ in AI investments, and Anthropic just released Sonnet 4.6—matching Opus performance at Sonnet prices. Meanwhile, the practical tooling layer is maturing fast: agent memory APIs, prompt caching guides, and dramatic benchmark improvements via better "harness engineering." The conversation has shifted from "can AI code?" to "how do we build reliable agent systems at scale?"
+        </div>
+
+        <div class="section">
+            <h2>💰 The Money Talks</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/openai-reportedly-finalizing-100b-deal-at-more-than-850b-valuation/">OpenAI closing $100B+ round at $850B valuation</a></div>
+                <div class="item-description">The ChatGPT maker is finalizing a historic funding round with Amazon ($50B), SoftBank ($30B), Nvidia ($20B), and Microsoft. First phase closes end of February. Despite the massive valuation jump from $730B, OpenAI remains unprofitable until at least 2029, with a potential IPO in late 2026.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/reliance-unveils-110b-ai-investment-plan-as-india-ramps-up-tech-ambitions/">India emerges as AI infrastructure hub: $110B+ investments</a></div>
+                <div class="item-description">Reliance unveiled a $110B AI investment plan, building multi-gigawatt data centers in Jamnagar with 120+ MW coming online in 2026. Meanwhile, OpenAI partnered with Tata for 100MW of data center capacity (targeting 1GW) and Reliance to add AI search to JioHotstar. India is positioning itself as a key player in global AI infrastructure.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://www.tldrnewsletter.com/">World Labs raises $1B from AMD, Nvidia, and Fidelity</a></div>
+                <div class="item-description">The spatial intelligence startup secured $1B to advance products like MARBLE, which creates cohesive 3D worlds from images, video, or text. Another massive funding round signaling investor appetite for next-generation AI capabilities.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🤖 The Agent Era: Memory, Harness, and Workflows</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/reload-an-ai-employee-agent-management-platform-raises-2-275m-and-launches-an-ai-employee/">Reload wants to give your AI agents a shared memory</a></div>
+                <div class="item-description">Raised $2.275M led by Anthemis and launched its first AI employee, Epic. The key insight: multi-agent systems need shared memory infrastructure to coordinate effectively. This is the tooling layer for agentic systems that you've been thinking about.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://www.producthunt.com/products/mengram">Mengram: AI memory API with 3 types</a></div>
+                <div class="item-description">New on Product Hunt: an API offering three types of memory for AI systems—facts, events, and workflows. The standardization of agent memory as a service is happening faster than expected.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://blog.langchain.dev/improving-deep-agents-with-harness-engineering/">LangChain's coding agent: Top 30 to Top 5 with better harness engineering</a></div>
+                <div class="item-description">LangChain jumped from Top 30 to Top 5 on Terminal Bench 2.0 with just a harness change—no model improvements. The lesson: "harness engineering" (how you mold model intelligence for specific tasks) matters as much as the model itself. Self-verification and tracing are key.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://www.producthunt.com/products/agentready-2">AgentReady: Cut AI token costs 40-60% with one API call</a></div>
+                <div class="item-description">New tool promising dramatic token cost reduction for production AI systems. As agent workflows become more complex, cost optimization is becoming a critical concern.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 New Models & Benchmarks</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://simonwillison.net/2026/Feb/17/claude-sonnet-46/">Claude Sonnet 4.6: Opus performance at Sonnet prices</a></div>
+                <div class="item-description">Anthropic released Sonnet 4.6, claiming similar performance to Opus 4.5 while maintaining Sonnet pricing ($3/M input, $15/M output vs. Opus's $5/$25). Knowledge cutoff is August 2025 vs. Opus 4.6's May 2025. This is a significant price-performance shift that could reshape how teams choose models.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/swe-bench/">SWE-bench February 2026 leaderboard update</a></div>
+                <div class="item-description">The official SWE-bench leaderboard got a fresh run against current-generation models—notable because these results weren't self-reported by the labs. Independent benchmarking remains critical as model claims proliferate.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://www.tldrnewsletter.com/">Google's Gemini integrates Lyria 3 for music generation</a></div>
+                <div class="item-description">Gemini app now includes Lyria 3, enabling users to create 30-second tracks from text or images in beta. Multimodal capabilities continue expanding into consumer-facing creative tools.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💻 The Changing Nature of Coding</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://simonwillison.net/2026/Feb/18/typing/">Simon Willison: "Typing without having to type"</a></div>
+                <div class="item-description">After 25+ years resisting type hints and strong typing, Simon is reconsidering now that AI agents do the typing. When coding agents handle the boilerplate, the benefits of explicitly defining types outweigh the iteration slowdown. A fascinating shift in developer preferences driven by AI tooling.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://simonwillison.net/2026/Feb/18/martin-fowler/">Martin Fowler: "LLMs are eating specialty skills"</a></div>
+                <div class="item-description">"There will be less use of specialist front-end and back-end developers as the LLM-driving skills become more important than the details of platform usage. Will this lead to greater recognition of Expert Generalists? Or will LLMs code around the silos rather than eliminating them?"</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/for-open-source-programs-ai-coding-tools-are-a-mixed-blessing/">For open-source, AI coding tools are a mixed blessing</a></div>
+                <div class="item-description">AI coding tools have enabled a flood of bad code that threatens to overwhelm many open-source projects. Building new features is easier, but maintaining them is just as hard. The maintenance burden is becoming the critical bottleneck.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://simonwillison.net/2026/Feb/18/the-ai-disruption/">Paul Ford in NYT: "The A.I. Disruption We've Been Waiting for Has Arrived"</a></div>
+                <div class="item-description">Paul Ford describes the "November moment" that so many programmers observed and highlights Claude Code's ability to revive old side projects. His take on the cultural shift happening in software development right now is essential reading.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ Infrastructure & Optimization</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://platform.openai.com/docs/guides/prompt-caching">OpenAI publishes detailed prompt caching guide</a></div>
+                <div class="item-description">Comprehensive guide explaining how prompt caching reuses repeated prompt prefixes to skip prefill compute, reducing latency and input token costs. Covers cache mechanics, routing considerations, KV reuse, and practical strategies for increasing cache hit rates in production.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/co-founders-behind-reface-and-prisma-join-hands-to-improve-on-device-model-inference-with-mirai/">Mirai: Improving on-device model inference</a></div>
+                <div class="item-description">Co-founders behind Reface and Prisma raised $10M seed to improve how AI models run on devices like smartphones and laptops. As models grow, efficient on-device inference becomes critical for latency-sensitive applications.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/freeform-raises-67m-series-b-to-scale-up-laser-ai-manufacturing/">Freeform raises $67M for laser AI manufacturing</a></div>
+                <div class="item-description">"I think we're the only quote-unquote manufacturing company out there that has H200 clusters in a data center on site." AI-driven manufacturing with on-site GPU clusters—the convergence of AI and robotics is accelerating.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠 Developer Tools</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://simonwillison.net/2026/Feb/17/rodney/">Rodney v0.4.0: Browser automation gets better</a></div>
+                <div class="item-description">Simon's CLI tool for browser automation attracted a flurry of PRs this week. New features include directory-scoped sessions, JavaScript test assertions, and improved error handling. A nice example of how AI coding tools are accelerating open-source velocity.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/ladybird/">Ladybird browser abandons Swift adoption</a></div>
+                <div class="item-description">"After making no progress on this for a very long time, let's acknowledge it's not going anywhere and remove it from the codebase." Sometimes the best engineering decision is knowing when to cut your losses.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 For Your MBA Toolkit</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://www.lennysnewsletter.com/p/best-of-lennys-newsletter-2026">Lenny's Best of 2026 (so far)</a></div>
+                <div class="item-description">Early 2026 roundup includes insights on AI's impact on product management and a reminder that Insider subscribers get a free year of 19 premium products including Lovable, Replit, Bolt, Devin, Superhuman, Perplexity, and Raycast. Worth reviewing the AI PM trend pieces.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/this-vcs-best-advice-for-building-a-founding-team/">VC advice on building a founding team</a></div>
+                <div class="item-description">One of the most consequential decisions early-stage founders make is who to bring on as the founding team. The first 5-10 employees have massive impact on company culture, and the precedents set with them are difficult to change down the road.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎭 Moment of the Day</h2>
+
+            <div class="item">
+                <div class="item-title"><a href="https://techcrunch.com/2026/02/19/altman-and-amodei-share-a-moment-of-awkwardness-at-indias-big-ai-summit/">Altman and Amodei's awkward moment</a></div>
+                <div class="item-description">At India's AI summit, when PM Modi prompted speakers to join hands and raise them in unity, all executives on stage obliged—except OpenAI's Sam Altman and Anthropic's Dario Amodei, who held their hands conspicuously apart. Sometimes the competitive dynamics speak louder than diplomatic protocol.</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Thursday, February 19, 2026
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Tuesday, February 17, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            background-color: #f0f7ff;
+            padding: 16px;
+            border-left: 4px solid #0066cc;
+            margin-bottom: 32px;
+            font-size: 15px;
+            color: #444;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        .section-title {
+            color: #0066cc;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .item-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        .item-summary {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .notice {
+            background-color: #fff8e1;
+            padding: 16px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: #856404;
+        }
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e8e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus ☕</h1>
+        <div class="date">Tuesday, February 17, 2026</div>
+
+        <div class="notice">
+            <strong>Technical note:</strong> Several sources experienced issues this morning (IMAP tool error, RSS feed parsing problems, web search returning empty results). Today's digest is based on available content from Simon Willison's blog. Back to full coverage tomorrow.
+        </div>
+
+        <div class="intro">
+            Despite today's technical challenges, there's a standout story worth your attention: <strong>Alibaba's Qwen 3.5 is positioning itself as the first "native multimodal agent" model</strong>, combining vision capabilities with a mixture-of-experts architecture optimized for efficient serving. Plus, an interesting take on combating "cognitive debt" in AI-accelerated development.
+        </div>
+
+        <div class="section">
+            <div class="section-title">🤖 AI Agents & Models</div>
+
+            <div class="item">
+                <div class="item-title">
+                    <a href="https://simonwillison.net/2026/Feb/17/qwen35/#atom-everything" target="_blank">Qwen 3.5: Towards Native Multimodal Agents</a>
+                </div>
+                <div class="item-summary">
+                    Alibaba's Qwen released two new models in their 3.5 series—one open-weights (Qwen3.5-397B-A17B), one proprietary—both supporting multimodal vision input. The open model uses an innovative Mixture of Experts architecture specifically designed for serving efficiency, a key consideration for agentic systems that need to balance capability with cost.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-title">
+                    <a href="https://simonwillison.net/2026/Feb/17/dimitris-papailiopoulos/#atom-everything" target="_blank">The Magic Box for Research: AI as First-Pass Exploration</a>
+                </div>
+                <div class="item-summary">
+                    Dimitris Papailiopoulos on how LLMs have fundamentally changed his research workflow: "I now have something close to a magic box where I throw in a question and a first answer comes back basically for free." Instead of asking students to run exploratory experiments, he uses AI for rapid signal detection before going deeper.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🛠️ Developer Experience & Best Practices</div>
+
+            <div class="item">
+                <div class="item-title">
+                    <a href="https://simonwillison.net/2026/Feb/17/release-notes-webcomic/#atom-everything" target="_blank">Fighting Cognitive Debt: Release Notes as Webcomics</a>
+                </div>
+                <div class="item-summary">
+                    Nathan Baschez shares a clever technique for reducing "cognitive debt" in AI-accelerated development: ask the LLM to write two versions of implementation plans—one technical, one as a narrative or even a webcomic. This helps maintain deep understanding when AI is generating code faster than you can fully comprehend it. Relevant as you build more agentic systems.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">📚 Cultural Tidbits</div>
+
+            <div class="item">
+                <div class="item-title">
+                    <a href="https://simonwillison.net/2026/Feb/17/rough-draft-8266/#atom-everything" target="_blank">Star Trek's Original Opening: "Regulates Commerce"</a>
+                </div>
+                <div class="item-summary">
+                    A fun piece of sci-fi history: the August 1966 rough draft of Star Trek's opening described the Enterprise as regulating commerce and visiting Earth colonies—quite different from the final "to boldly go where no man has gone before" version. Interesting lens on how narrative framing evolved.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-title">
+                    <a href="https://simonwillison.net/2026/Feb/17/first-kakapo-chick-in-four-years/#atom-everything" target="_blank">First Kākāpō Chick in Four Years Hatches</a>
+                </div>
+                <div class="item-summary">
+                    Conservation win: a kākāpō chick hatched on Valentine's Day, bringing the total population to 237. The egg was fostered from one mother to another (kākāpō mothers typically raise 1-2 chicks max). A reminder that patient, systematic work pays off—not unlike your Solutions Architecture path.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Tuesday, February 17, 2026
+        </div>
+    </div>
+</body>
+</html>

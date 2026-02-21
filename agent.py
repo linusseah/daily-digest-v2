@@ -23,6 +23,7 @@ import json
 import datetime
 import argparse
 import subprocess
+import shutil
 from pathlib import Path
 
 from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
@@ -179,6 +180,14 @@ def main() -> None:
         if HTML_OUTPUT.exists():
             print(f"  Digest HTML produced: {HTML_OUTPUT} ({HTML_OUTPUT.stat().st_size} bytes)")
             success = True
+
+            # Archive digest for evals
+            EVAL_DIGESTS_DIR = ROOT / "evals" / "data" / "digests"
+            EVAL_DIGESTS_DIR.mkdir(parents=True, exist_ok=True)
+
+            archive_path = EVAL_DIGESTS_DIR / f"{datetime.date.today().isoformat()}_digest.html"
+            shutil.copy(HTML_OUTPUT, archive_path)
+            print(f"  Digest archived to {archive_path}")
         else:
             raise RuntimeError(f"Agent completed but {HTML_OUTPUT} was not created")
 

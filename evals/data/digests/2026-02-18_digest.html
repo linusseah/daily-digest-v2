@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Wednesday, February 18, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #000;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            color: #555;
+            font-size: 15px;
+        }
+        h2 {
+            color: #000;
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #e1e4e8;
+            padding-bottom: 8px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .item-title a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+        .item-summary {
+            color: #586069;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .footer {
+            margin-top: 48px;
+            padding-top: 16px;
+            border-top: 1px solid #e1e4e8;
+            color: #999;
+            font-size: 13px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Good morning, Linus</h1>
+    <div class="date">Wednesday, February 18, 2026</div>
+
+    <div class="intro">
+        The AI infrastructure layer is coming into focus. Today's digest tells the story of an ecosystem moving from research to production: Anthropic's Sonnet 4.6 hits new price-performance milestones, OpenAI acquires agent framework OpenClaw to power the next generation of autonomous systems, and hundreds of millions flow into the infrastructure stack—from World Labs' 3D world models to data center power management. The era of AI agents isn't coming; it's here, and the picks-and-shovels phase is accelerating.
+    </div>
+
+    <h2>🤖 AI Models & Agents</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/17/claude-sonnet-46/#atom-everything">Claude Sonnet 4.6 Launched</a></div>
+        <div class="item-summary">Anthropic released Sonnet 4.6, matching Opus 4.5 performance at Sonnet pricing ($3/$15 per million tokens). Features upgraded coding, computer-use, and long-context reasoning with a 1M-token context window in beta. Knowledge cutoff: August 2025. This is now the default for Free and Pro users.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/18/world-labs-lands-200m-from-autodesk-to-bring-world-models-into-3d-workflows/">World Labs Lands $200M from Autodesk for 3D World Models</a></div>
+        <div class="item-summary">Fei-Fei Li's World Labs raised $200M from Autodesk to integrate spatial AI models into entertainment and design workflows. The partnership explores how world models—AI that understands 3D space and physics—can augment Autodesk's tools for film, game dev, and architecture.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">OpenAI Acquires OpenClaw: The Agent Era Begins</div>
+        <div class="item-summary">OpenAI's acquisition of OpenClaw (reported in TLDR) signals a strategic pivot from conversational AI to autonomous agents. OpenClaw's unrestricted functionality—tool access, sandboxed code execution, and browser control—positions OpenAI to compete in the agentic computing layer. The ChatGPT era is ending; the agent era is here.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/clawmetry">ClawMetry: Real-time Observability for OpenClaw Agents</a></div>
+        <div class="item-summary">New Product Hunt launch offers a dashboard for monitoring OpenClaw AI agent performance in real-time. As agent adoption grows, so does the need for observability tooling—ClawMetry is betting early on this emerging category.</div>
+    </div>
+
+    <h2>💼 AI Funding & Startups</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/18/kana-emerges-from-stealth-with-15m-to-build-flexible-ai-agents-for-marketers/">Kana Raises $15M for AI Marketing Agents</a></div>
+        <div class="item-summary">Founded by Rapt and Krux alumni, Kana emerged from stealth with $15M to build customizable, agent-based marketing tools. Vertical AI agents are heating up as enterprises look beyond generic LLM interfaces.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/18/indian-ai-lab-sarvams-new-models-are-a-major-bet-on-the-viability-of-open-source-ai/">Sarvam AI Bets Big on Open-Source with Edge Models</a></div>
+        <div class="item-summary">Indian AI lab Sarvam released 30B and 105B parameter models plus text-to-speech, speech-to-text, and vision models—all open-source. They're targeting feature phones, cars, and smart glasses with ultra-light edge models that run offline. A major test case for open-source AI viability.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">AI Infrastructure Gets Serious Capital</div>
+        <div class="item-summary">Two big rounds in data center power: Heron Power (led by Tesla alum Drew Baglino) raised $140M for grid-altering tech, and DG Matrix raised $60M for smart solid-state transformers. As AI compute demand explodes, power management is becoming a bottleneck—and a business opportunity.</div>
+    </div>
+
+    <h2>🛠️ Developer Tools & DX</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/17/rodney/#atom-everything">Rodney v0.4.0: Browser Automation CLI Gets Better</a></div>
+        <div class="item-summary">Simon Willison's Rodney browser automation tool hit v0.4.0 with new features: improved error handling (exit codes), a new `rodney assert` command for JavaScript tests, and directory-scoped sessions. If you're doing web scraping or testing, worth checking out.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">NotebookLM Ships Prompt-Based Revisions</div>
+        <div class="item-summary">Google's NotebookLM now lets you revise slides with natural language prompts. Currently supports PPTX; Google Slides coming soon. Another example of LLMs moving from generation to iteration—the real productivity unlock.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/baseline-core">Baseline Core: Open-Source Skills System for AI</a></div>
+        <div class="item-summary">New Product Hunt launch offers an open-source framework to wire business logic into AI systems. As enterprises try to productionize LLMs, tools that manage skills, tools, and context are emerging as critical infrastructure.</div>
+    </div>
+
+    <h2>⚠️ Enterprise AI Reality Check</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/18/microsoft-says-office-bug-exposed-customers-confidential-emails-to-copilot-ai/">Microsoft Copilot Bug Exposed Confidential Emails</a></div>
+        <div class="item-summary">Microsoft disclosed an Office bug where Copilot AI read and summarized customers' confidential emails, bypassing data protection policies. A sobering reminder that enterprise AI governance is still early-stage—and mistakes can be costly.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/18/canva-gets-to-4b-in-revenue-as-llm-referral-traffic-rises/">Canva Hits $4B Revenue as LLM Referrals Rise</a></div>
+        <div class="item-summary">Canva reached $4B in annual revenue with 20% MAU growth, partially driven by AI tool adoption. Notably, LLM referral traffic is growing—users are discovering Canva through AI assistants recommending it for design tasks. Distribution is changing.</div>
+    </div>
+
+    <h2>📚 Product & Strategy Reads</h2>
+
+    <div class="item">
+        <div class="item-title">Lenny's Newsletter: 2026 Best-Of</div>
+        <div class="item-summary">Lenny Rachitsky's latest roundup highlights the most useful PM content from early 2026. Recent focus: how to become a supermanager with AI, which companies accelerate PM careers most, and insights on AI-driven experimentation. Worth revisiting if you missed it.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">Elon Musk on AI Alignment, Space Data Centers, and China</div>
+        <div class="item-summary">Elon's recent Dwarkesh Patel podcast covered data centers in space, virtual humans, robots, and the "infinity money glitch." His thesis: whoever builds autonomous robots at scale wins the economy. China is more productive; the West needs to catch up or lose.</div>
+    </div>
+
+    <h2>🎨 New Products Worth Watching</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/your-ai-clone">Your AI Clone: Remembers People You've Never Met</a></div>
+        <div class="item-summary">New Product Hunt launch promises an AI clone that maintains context across relationships you haven't directly experienced. Intriguing concept for delegation and knowledge management—curious to see execution.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/blivz">Open Blivz: Open-Source Alternative to Clay</a></div>
+        <div class="item-summary">Customizable, open-source alternative to Clay for data enrichment and workflow automation. If you're in growth or sales ops, might be worth evaluating against commercial options.</div>
+    </div>
+
+    <div class="footer">
+        Generated by Daily Digest v2 · Wednesday, February 18, 2026
+    </div>
+</body>
+</html>
