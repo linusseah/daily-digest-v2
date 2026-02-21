@@ -1,0 +1,55 @@
+name: Score Digests with LLM Judge
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max number of digests to score (leave empty for all)'
+        required: false
+        type: string
+
+jobs:
+  score-digests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scoring pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.limit }}" ]; then
+            python -m evals.scoring_pipeline --limit ${{ inputs.limit }}
+          else
+            python -m evals.scoring_pipeline
+          fi
+
+      - name: Commit and push scores
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add evals/data/scores.csv
+          git diff --staged --quiet || git commit -m "Add LLM judge scores [skip ci]"
+          git push
+
+      - name: Upload scores as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-scores
+          path: evals/data/scores.csv
+          retention-days: 90
