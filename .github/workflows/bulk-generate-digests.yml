@@ -29,7 +29,12 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Generate multiple digests
+      - name: Set up git for incremental commits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate multiple digests with incremental commits
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RESEND_API_KEY:    ${{ secrets.RESEND_API_KEY }}
@@ -39,20 +44,36 @@ jobs:
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           EXA_API_KEY:          ${{ secrets.EXA_API_KEY }}
         run: |
-          # Run the bulk generate script
-          python evals/scripts/bulk_generate.py --count ${{ inputs.count }} --start-date 2026-01-01 --sleep 30
+          # Run generation in batches of 4, committing after each batch
+          COUNT=${{ inputs.count }}
+          BATCH_SIZE=4
+          START_DATE="2026-01-01"
 
-      - name: Upload generated digests
+          for i in $(seq 0 $BATCH_SIZE $((COUNT-1))); do
+            REMAINING=$((COUNT - i))
+            CURRENT_BATCH=$((REMAINING < BATCH_SIZE ? REMAINING : BATCH_SIZE))
+
+            echo "Generating batch: $CURRENT_BATCH digests starting from offset $i"
+            python evals/scripts/bulk_generate.py --count $CURRENT_BATCH --start-date "$START_DATE" --sleep 30
+
+            # Commit this batch if any new digests were created
+            if git status --porcelain | grep -q "evals/data/digests/"; then
+              git add evals/data/digests/
+              git commit -m "Add digests batch $((i/BATCH_SIZE + 1)) [skip ci]"
+              git push
+              echo "Batch $((i/BATCH_SIZE + 1)) committed and pushed"
+            else
+              echo "No new digests in this batch"
+            fi
+
+            # Update start date for next batch
+            START_DATE=$(date -I -d "$START_DATE + $CURRENT_BATCH days" 2>/dev/null || date -j -v+${CURRENT_BATCH}d -f "%Y-%m-%d" "$START_DATE" "+%Y-%m-%d")
+          done
+
+      - name: Upload all generated digests as backup
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: bulk-generated-digests
           path: evals/data/digests/*.html
           retention-days: 90
-
-      - name: Commit and push digests
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add evals/data/digests/
-          git diff --staged --quiet || git commit -m "Add bulk generated digests for calibration [skip ci]"
-          git push
