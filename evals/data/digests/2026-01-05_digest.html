@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #000;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1a1a1a;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        .intro {
+            background: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #000;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+        .item-title a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+        .item-content {
+            margin-top: 5px;
+            color: #444;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 0.85em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Good morning, Linus</h1>
+    <div class="date">Saturday, February 21, 2026</div>
+
+    <div class="intro">
+        Today's digest: AI infrastructure is maturing at breakneck speed. Google shipped Gemini 3.1 Pro, a Canadian startup is serving Llama at 17,000 tokens/second, and Andrej Karpathy introduced "Claws"—a new layer on top of LLM agents that's selling Mac Minis like hotcakes. Meanwhile, the tooling ecosystem is catching up with agent sandboxing, prompt caching breakthroughs, and ggml.ai joining Hugging Face. The pace is relentless.
+    </div>
+
+    <h2>🚀 Model Performance & Infrastructure</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/">Gemini 3.1 Pro launches with impressive benchmarks</a></div>
+        <div class="item-content">Google's newest flagship model is rolling out across AI Studio, Vertex, NotebookLM, and the Gemini app—at less than half the price of Claude Opus 4.6 ($2/M input vs $4/M). The big news: 77.1% on ARC-AGI-2, more than doubling Gemini 3 Pro. Simon notes it even improved SVG animation performance. Pricing and context window unchanged from 3 Pro.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/taalas/">Taalas serves Llama 3.1 8B at 17,000 tokens/second</a></div>
+        <div class="item-content">A new Canadian hardware startup just announced custom hardware that runs Llama 3.1 8B at a staggering 17K tokens/sec—so fast their demo video looks like a screenshot. You can try it at chatjimmy.ai. This is the kind of specialized inference hardware that changes the economics of local AI.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/">OpenAI's GPT-5.3-Codex-Spark gets 30% faster</a></div>
+        <div class="item-content">OpenAI's Thibault Sottiaux announced they've made GPT-5.3-Codex-Spark about 30% faster, now serving at over 1,200 tokens per second. The inference performance race continues to accelerate.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/">How prompt caching makes Claude Code possible</a></div>
+        <div class="item-content">Anthropic's Thariq Shihipar shared how long-running agentic products like Claude Code depend on prompt caching to reuse computation from previous turns, significantly decreasing latency and cost. At Claude Code, they build their entire harness around caching and run alerts on cache hit rates—high rates mean lower costs and more generous subscription limits.</div>
+    </div>
+
+    <h2>🤖 AI Agents & Architectures</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/claws/">Andrej Karpathy on "Claws"—the next layer after agents</a></div>
+        <div class="item-content">Karpathy bought a Mac Mini to tinker with "Claws" (the Apple store told him they're "selling like hotcakes and everyone is confused"). He writes: "Just like LLM agents were a new layer on top of LLMs, Claws are now a new layer on top of agents." This is computer-using agents that can control your entire desktop—a paradigm shift beyond chatbots and coding assistants.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://tldr.tech/ai/2026-02-20">Cursor's agent sandboxing system</a></div>
+        <div class="item-content">TLDR reports that Cursor described an "agent sandboxing" system that lets local coding agents run freely inside a constrained environment, only asking for approval when they need to escape. This is critical infrastructure for letting agents work autonomously without risking your system.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://tldr.tech/ai/2026-02-20">ARC-AGI-3: Interactive reasoning benchmark update</a></div>
+        <div class="item-content">ARC-AGI-3 measures an AI agent's ability to generalize in novel, unseen environments. Claude Opus 4.6 demonstrates better reasoning and use of memory than Gemini 3.1 Pro and solves more levels. Current models may be able to solve ARC-AGI-3 with access to simple memory scaffolds—suggesting we're 2 years away from self-improvement or research-agent thresholds.</div>
+    </div>
+
+    <h2>🛠️ Developer Tools</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/claudebin">Claudebin: Export and share Claude Code sessions</a></div>
+        <div class="item-content">New on Product Hunt: export your Claude Code sessions as resumable URLs. Perfect for sharing debugging sessions, getting help on issues, or archiving your workflow. This is what the community builds when the tooling ecosystem matures.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/keychain-dev">keychains.dev: Give AI access to 6,754+ APIs</a></div>
+        <div class="item-content">A new developer tool that lets you give AI agents access to thousands of APIs with zero credentials exposed. This solves a major pain point for agentic workflows that need to integrate with external services securely.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/beats/">Simon Willison adds "beats" to his blog</a></div>
+        <div class="item-content">Simon just turned on a new feature called "beats" (after story beats) that adds five new types of content to his site: TILs, releases, museums, tools, and research—all corresponding to activity elsewhere. It's a clever way to aggregate your digital footprint into one place.</div>
+    </div>
+
+    <h2>🏢 AI Ecosystem</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/">ggml.ai joins Hugging Face</a></div>
+        <div class="item-content">Major acquisition: Georgi Gerganov's ggml.ai is joining Hugging Face. His release of llama.cpp in March 2023 made it possible to run LLMs on consumer hardware—hard to overstate the impact. This move ensures long-term progress for the local AI movement with proper institutional backing.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/swe-bench/">SWE-bench February 2026 leaderboard update</a></div>
+        <div class="item-content">The official SWE-bench leaderboard did a full run against current-gen models. Notable because these are third-party benchmark results, not self-reported by labs. The fresh results show how the latest models perform on real-world software engineering tasks.</div>
+    </div>
+
+    <h2>💰 Funding & Politics</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/20/inscope-nabs-14-5m-to-solve-the-pain-of-financial-reporting/">InScope raises $14.5M to automate financial reporting</a></div>
+        <div class="item-content">Founded by accountants who worked at Flexport, Miro, Hopin, and Thrive Global, InScope automates the difficulties of prepping financial statements. A practical use case for AI in enterprise workflows.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/">Anthropic-funded PAC backs congressional candidate</a></div>
+        <div class="item-content">Dueling pro-AI super PACs are now targeting congressional races. The candidate in question, Alex Bores (NY), proposed the RAISE Act requiring AI developers to disclose safety protocols and report serious system misuse. AI policy is getting real political teeth.</div>
+    </div>
+
+    <h2>🎯 Worth a Look</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/coasty">Coasty: Computer-using agents on secure cloud VMs</a></div>
+        <div class="item-content">Computer-using agents that run forever on secure cloud VMs. Another take on the Claws paradigm—letting AI control desktop environments safely.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/20/great-news-for-xai-grok-is-now-pretty-good-at-answering-questions-about-baldurs-gate/">xAI pulled engineers to make Grok good at Baldur's Gate</a></div>
+        <div class="item-content">Business Insider reports that high-level engineers at xAI were pulled off other projects to ensure Grok could answer detailed questions about the video game Baldur's Gate. Peak AI priorities, 2026 edition.</div>
+    </div>
+
+    <div class="footer">
+        Generated by Daily Digest v2 · Saturday, February 21, 2026
+    </div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Saturday, February 21, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        .container {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .date {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            padding: 20px;
+            background: #f5f7fa;
+            border-left: 4px solid #0066cc;
+            color: #2c3e50;
+        }
+        h2 {
+            font-size: 20px;
+            color: #0066cc;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e8e8e8;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+        .item-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        .item-content {
+            color: #4a4a4a;
+            font-size: 15px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e8e8;
+            color: #999;
+            font-size: 13px;
+            text-align: center;
+        }
+        .label {
+            display: inline-block;
+            background: #e8f4f8;
+            color: #0066cc;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus ☕</h1>
+        <div class="date">Saturday, February 21, 2026</div>
+
+        <div class="intro">
+            The AI stack is maturing—fast. This week brought the biggest single-generation reasoning leap we've seen (Gemini 3.1 Pro's 2.5x jump on ARC-AGI), hardware serving models at 17,000 tokens/second, and infrastructure consolidation as llama.cpp joins Hugging Face. Meanwhile, Karpathy introduced "Claws" as the next abstraction layer beyond agents. These aren't incremental improvements—they're the signs of an ecosystem shifting from research to production.
+        </div>
+
+        <h2>🚀 Speed Wars Heat Up</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/20/taalas/">Taalas serves Llama 3.1 8B at 17,000 tokens/second</a>
+            </div>
+            <div class="item-content">
+                Canadian hardware startup Taalas just announced custom hardware that runs Llama 3.1 8B at a staggering 17,000 tokens/second—so fast their demo would look like a screenshot. You can try it at chatjimmy.ai. This represents a fundamentally different approach to inference: purpose-built silicon for specific models. Simon Willison's take is worth reading.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/">OpenAI's GPT-5.3-Codex-Spark now 30% faster</a>
+            </div>
+            <div class="item-content">
+                Thibault Sottiaux at OpenAI announced GPT-5.3-Codex-Spark is now serving at over 1,200 tokens per second—a 30% speed improvement. The race for inference speed is becoming as important as the race for capability. For agentic workflows and real-time applications, latency is the new bottleneck.
+            </div>
+        </div>
+
+        <h2>🧠 Reasoning Breakthrough</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <span class="label">MAJOR RELEASE</span>
+                <a href="https://deepmind.google/models/evals-methodology/gemini-3-1-pro">Gemini 3.1 Pro: The Biggest Single-Gen Reasoning Leap</a>
+            </div>
+            <div class="item-content">
+                Google released Gemini 3.1 Pro with a stunning 77.1% on ARC-AGI-2—up from 31.1% in the previous version. That's the largest single-generation reasoning gain among frontier models. It beats GPT-5.2 (52.9%) and Claude Opus 4.6 (68.8%) on abstract reasoning, and leads in 12 out of 18 major benchmarks. Pricing unchanged at $2/$12 per million tokens. Available now in AI Studio, Gemini app, and NotebookLM. Multiple TLDR newsletters covered this; Simon Willison's analysis adds depth.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/19/swe-bench/">SWE-bench February 2026 Update</a>
+            </div>
+            <div class="item-content">
+                SWE-bench, the benchmark for autonomous software engineering agents, just got a fresh run against current-gen models. Unlike self-reported lab results, this is independently verified. Worth checking to see how the latest agents stack up on real-world coding tasks.
+            </div>
+        </div>
+
+        <h2>🛠️ Infrastructure Consolidation</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <span class="label">ACQUISITION</span>
+                <a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/">llama.cpp Creator Joins Hugging Face</a>
+            </div>
+            <div class="item-content">
+                Georgi Gerganov and the ggml.ai team (creators of llama.cpp, the tool that made local LLMs possible in March 2023) have joined Hugging Face. This brings together model hosting, definition, and local inference in one ecosystem. llama.cpp powers Ollama, LM Studio, and countless other local AI tools—it has 95,400 GitHub stars. The project stays open-source and independent, but now has Hugging Face's resources behind it. This is huge for the local AI movement.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/">How Claude Code Uses Prompt Caching</a>
+            </div>
+            <div class="item-content">
+                Thariq Shihipar from Anthropic shared how Claude Code is "built entirely around prompt caching." By reusing computation from previous roundtrips, they significantly decrease latency and cost—making long-running agentic products feasible. High cache hit rates enable more generous rate limits. This is the kind of infrastructure optimization that separates demos from production-ready AI products.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/">Recovering Lost Code from Claude Session Logs</a>
+            </div>
+            <div class="item-content">
+                Simon Willison hit "parallel agent psychosis" and lost a feature he'd built—until he realized Claude Code's session logs in ~/.claude/projects/ had everything. A reminder that when working with AI agents, the conversation history becomes your version control backup. Developer tooling around agentic workflows is still being figured out.
+            </div>
+        </div>
+
+        <h2>🤖 The Next Abstraction Layer</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <span class="label">CONCEPT</span>
+                <a href="https://simonwillison.net/2026/Feb/21/claws/">Andrej Karpathy Introduces "Claws"</a>
+            </div>
+            <div class="item-content">
+                Karpathy tweeted a mini-essay about "Claws" as a new abstraction layer: "Just like LLM agents were a new layer on top of LLMs, Claws are now a new layer on top of LLM agents." Claws enhance orchestration, scheduling, and context management—effectively turning the entire computer into an agent. He's tinkering with it on a Mac Mini ("The apple store person told me they are selling like hotcakes and everyone is confused"). OpenClaw's creator just joined OpenAI to work on this. Worth watching—this could be how we think about AI systems in 2027.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://www.producthunt.com/products/lyria-3-by-google-deepmind">Google Launches Lyria 3 Music Generation in Gemini</a>
+            </div>
+            <div class="item-content">
+                Gemini app now has Lyria 3 integrated, letting users create 30-second tracks from text or images. Google's expanding from text and vision into audio—another modality unlocked. This is the multimodal future materializing: one interface, many outputs.
+            </div>
+        </div>
+
+        <h2>📊 What It Means for Product</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/">Dueling AI Super PACs Target NY Congressional Race</a>
+            </div>
+            <div class="item-content">
+                An Anthropic-funded group is backing candidate Alex Bores, whose RAISE Act would require AI developers to disclose safety protocols. A rival AI super PAC is attacking the same candidate. AI policy is getting real—and contentious. For Solutions Architects working with enterprises, regulatory compliance is about to become a major sales factor.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://tldr.tech/product/2026-02-20">Salesforce's 3+ Pricing Models for Agentforce</a>
+            </div>
+            <div class="item-content">
+                Salesforce now offers multiple pricing models for Agentforce (per-seat, usage-based, outcome-based hybrids) because AI agent pricing hasn't stabilized yet. They're letting customers self-select while avoiding the risk that automation shrinks seat-based revenue. This is the messy middle of AI productization—everyone's figuring it out in real time. TLDR Product Management's analysis is sharp.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://www.producthunt.com/products/keychains-dev">keychains.dev: Give AI Access to 6,754 APIs</a>
+            </div>
+            <div class="item-content">
+                New developer tool that lets you give AI agents access to thousands of APIs without exposing credentials. This is the kind of infrastructure that makes agentic systems practical. Launched on Product Hunt this week.
+            </div>
+        </div>
+
+        <h2>🎯 Quick Hits</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://techcrunch.com/2026/02/20/meta-metaverse-leaves-vr-horizon-worlds-mobile/">Meta Pivots Horizon Worlds to "Almost Exclusively Mobile"</a>
+            </div>
+            <div class="item-content">
+                Meta's metaverse bet is shifting away from VR. Horizon Worlds is going mobile-first, separating from Quest VR. The original metaverse vision is quietly being retired.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://www.producthunt.com/products/git-lrc">git-lrc: Free AI Code Reviews on Every Commit</a>
+            </div>
+            <div class="item-content">
+                New tool that runs unlimited AI code reviews automatically on commit. Developer tools are increasingly AI-native by default.
+            </div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Saturday, February 21, 2026
+        </div>
+    </div>
+</body>
+</html>

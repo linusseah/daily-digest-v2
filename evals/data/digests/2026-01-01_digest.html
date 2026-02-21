@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Saturday, February 21, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .date {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .intro {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 18px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .item-title:hover {
+            color: #3498db;
+        }
+        .item-summary {
+            margin-top: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus ☀️</h1>
+        <div class="date">Saturday, February 21, 2026</div>
+
+        <div class="intro">
+            The AI stack is professionalizing at breakneck speed. This week brought not just faster models and flashy benchmarks, but the infrastructure that makes agents production-ready: sandboxing, prompt caching, secure API access, and custom hardware pushing inference to absurd speeds. Google shipped Gemini 3.1 Pro, Georgi Gerganov's ggml.ai joined Hugging Face, and Andrej Karpathy thinks we're entering a new layer of computing. The race isn't just about who builds the smartest model—it's about who builds the stack that lets everyone else ship with it.
+        </div>
+
+        <h2>🚀 The Performance Race Heats Up</h2>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/#atom-everything" class="item-title">OpenAI's GPT-5.3-Codex-Spark hits 1,200 tokens/second</a>
+            <div class="item-summary">OpenAI made their latest coding model 30% faster, now serving at over 1,200 tokens per second. The speed gains are making real-time code generation feel instantaneous.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/20/taalas/#atom-everything" class="item-title">Canadian startup Taalas serves Llama 3.1 8B at 17,000 tokens/second</a>
+            <div class="item-summary">Custom hardware implementation of Llama 3.1 8B running at a staggering 17,000 tokens/second—so fast the demo would look like a screenshot. Try it at chatjimmy.ai.</div>
+        </div>
+
+        <h2>🤖 Gemini 3.1 Pro: Google's Latest Salvo</h2>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/#atom-everything" class="item-title">Google launches Gemini 3.1 Pro with major benchmark gains</a>
+            <div class="item-summary">Gemini 3.1 Pro is now rolling out across AI Studio, Vertex AI, the Gemini app, and NotebookLM. It scored 77.1% on ARC-AGI-2 (more than doubling Gemini 3 Pro) and costs the same as its predecessor: $2/M input, $12/M output under 200k tokens. Priced at less than half of Claude Opus 4.6 with similar benchmark performance.</div>
+        </div>
+
+        <h2>🛠️ Agent Infrastructure Matures</h2>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/21/claws/#atom-everything" class="item-title">Andrej Karpathy on "Claws" as the next layer of computing</a>
+            <div class="item-summary">Karpathy tweeted about buying a Mac Mini to tinker with Claws—what he calls "a new layer on top of LLM agents." He's cautious about OpenClaw specifically but excited about the concept as a fundamental shift in how we interact with computers.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything" class="item-title">How prompt caching powers Claude Code's agentic workflows</a>
+            <div class="item-summary">Thariq Shihipar from Anthropic explains how long-running agentic products like Claude Code rely on prompt caching to reuse computation, drastically cutting latency and cost. Claude Code's entire harness is built around maximizing cache hit rates.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://www.producthunt.com/products/keychain-dev" class="item-title">keychains.dev: Give AI agents access to 6,754+ APIs securely</a>
+            <div class="item-summary">New developer tool lets AI agents access thousands of APIs without exposing credentials. Critical infrastructure for anyone building production agent systems.</div>
+        </div>
+
+        <div class="item">
+            <span class="item-title">Implementing secure agent sandboxing for local workflows</span>
+            <div class="item-summary">TLDR AI covered Cursor's approach to "agent sandboxing"—letting local coding agents run freely inside constrained environments, only asking for approval when needed. Essential pattern as agents become more autonomous.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://www.producthunt.com/products/coasty" class="item-title">Coasty: Computer-using agents on secure cloud VMs that run forever</a>
+            <div class="item-summary">New platform for running persistent AI agents on isolated cloud VMs. The "run forever" promise is exactly what production agent systems need.</div>
+        </div>
+
+        <h2>📊 Benchmarks & Research</h2>
+
+        <div class="item">
+            <span class="item-title">ARC-AGI-3: Opus 4.6 outperforms Gemini 3.1 Pro on interactive reasoning</span>
+            <div class="item-summary">The new ARC-AGI-3 benchmark measures an AI agent's ability to generalize in novel environments. Opus 4.6 demonstrates better reasoning, memory use, and solves more levels than Gemini 3.1 Pro. Current models might hit self-improvement thresholds within 2 years given simple memory scaffolds.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/19/swe-bench/#atom-everything" class="item-title">SWE-bench leaderboard update: February 2026</a>
+            <div class="item-summary">Fresh independent SWE-bench results (not self-reported by labs) show the current generation of models' real-world coding performance. Critical for understanding which models actually work for software engineering tasks.</div>
+        </div>
+
+        <h2>🏠 Local AI Gets Institutional Backing</h2>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything" class="item-title">ggml.ai joins Hugging Face to ensure the long-term progress of local AI</a>
+            <div class="item-summary">Georgi Gerganov, creator of llama.cpp (which made local LLMs possible on consumer hardware in March 2023), is joining Hugging Face. Hard to overstate his impact on the local model space—this acquisition ensures continued development of the local AI ecosystem.</div>
+        </div>
+
+        <h2>🔧 Tools & Quick Hits</h2>
+
+        <div class="item">
+            <a href="https://www.producthunt.com/products/claudebin" class="item-title">Claudebin: Export and share Claude Code sessions as resumable URLs</a>
+            <div class="item-summary">Developer tool for sharing Claude Code sessions. Useful for collaboration and debugging agentic workflows.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/20/beats/#atom-everything" class="item-title">Simon Willison adds "beats" to his blog</a>
+            <div class="item-summary">Simon added five new content types to his blog (TILs, releases, museums, tools, research), all corresponding to his activity elsewhere. Smart approach to aggregating cross-platform content.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/#atom-everything" class="item-title">Recovering lost code from Claude Code session logs</a>
+            <div class="item-summary">Simon lost a whole feature after his computer crashed and rebooted, but recovered it from ~/.claude/projects/ session logs. Good reminder that AI coding tools keep extensive histories.</div>
+        </div>
+
+        <div class="item">
+            <span class="item-title">Gemini app integrates Lyria 3 for music generation</span>
+            <div class="item-summary">Google's Gemini app now includes Lyria 3, enabling users to create 30-second tracks from text or images. The multimodal capabilities continue expanding.</div>
+        </div>
+
+        <div class="item">
+            <a href="https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/" class="item-title">Anthropic-funded PAC backs AI safety candidate</a>
+            <div class="item-summary">Dueling pro-AI PACs are centering on Alex Bores's New York congressional bid. His RAISE Act would require AI developers to disclose safety protocols and report serious system misuse.</div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Saturday, February 21, 2026
+        </div>
+    </div>
+</body>
+</html>

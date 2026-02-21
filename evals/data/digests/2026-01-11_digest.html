@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .date {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #eee;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .item-title a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+        .item-description {
+            color: #555;
+            margin-top: 4px;
+            font-size: 15px;
+        }
+        .footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #ddd;
+            color: #888;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>☀️ Good morning, Linus</h1>
+        <div class="date">Saturday, February 21, 2026</div>
+
+        <div class="intro">
+            This week marks a watershed moment: AI agents are breaking out of the chat box and taking direct control of computers. OpenClaw—Andrej Karpathy's "new layer on top of LLM agents"—has everyone buying Mac Minis to give AI full system access. Meanwhile, the infrastructure needed to make this work is rapidly maturing: Anthropic's prompt caching enables Claude Code's long-running sessions, Cursor ships agent sandboxing, and new hardware serves models at 17,000 tokens/second. The race is on between cautious control and radical autonomy.
+        </div>
+
+        <h2>🤖 The Autonomous Agent Breakthrough</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/claws/">OpenClaw: AI Agents Take Computer Control</a></div>
+            <div class="item-description">Andrej Karpathy explains why he's buying a Mac Mini to tinker with OpenClaw (formerly "Clawdis"), the viral AI agent that gives LLMs full system access—files, shell, email, everything. It's what Karpathy calls "a new layer on top of LLM agents" and has gained 145K GitHub stars in three months. The catch? High API costs ($200-500/month) and security concerns, but the productivity gains have users calling it a "superpower."</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/">How Claude Code Runs Long Agentic Sessions</a></div>
+            <div class="item-description">Thariq Shihipar from Anthropic reveals that prompt caching is what makes multi-hour agent sessions economically viable. Claude Code builds its entire harness around caching to dramatically cut costs and latency. The team runs alerts on cache hit rates because high caching directly enables more generous rate limits for users.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://medium.com/@reza.ra/openclaw-the-ai-agent-that-burns-through-your-api-budget-and-how-to-fix-it-050fc57552c9">Agent Sandboxing Becomes Critical</a></div>
+            <div class="item-description">TLDR reports that Cursor shipped an "agent sandboxing" system that lets coding agents run freely in constrained environments and only asks for approval when breaking out. This is becoming the standard pattern for production agents that need both autonomy and safety guardrails.</div>
+        </div>
+
+        <h2>🚀 Model Wars: Gemini 3.1 Pro vs. Opus 4.6</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/">Gemini 3.1 Pro Ships at Half the Price of Opus</a></div>
+            <div class="item-description">Google's new Gemini 3.1 Pro ($2/$12 per million tokens) delivers benchmark scores comparable to Claude Opus 4.6 at less than half the cost. Simon Willison tested its SVG animation improvements—Google actually boasted about this in the announcement. Now rolling out to API, Vertex AI, Android Studio, and NotebookLM.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://medium.com/arc-agi-3-update">ARC-AGI-3: Opus 4.6 Shows Superior Reasoning</a></div>
+            <div class="item-description">The new ARC-AGI-3 interactive reasoning benchmark reveals Opus 4.6 demonstrates better reasoning and memory use than Gemini 3.1 Pro, solving more levels. Notably, current models may be able to crack ARC-AGI-3 with simple memory scaffolds—suggesting we could hit self-improvement or research-agent thresholds within 2 years.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/">OpenAI Makes GPT-5.3-Codex-Spark 30% Faster</a></div>
+            <div class="item-description">Thibault Sottiaux at OpenAI announces GPT-5.3-Codex-Spark now serves at over 1,200 tokens per second—a 30% speed improvement for their latest coding model.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/swe-bench/">SWE-Bench Leaderboard: Independent Verification</a></div>
+            <div class="item-description">SWE-bench released fresh February 2026 results—important because these weren't self-reported by labs. The benchmark evaluates how well models can autonomously fix real GitHub issues, and the updated leaderboard provides independent validation of recent model claims.</div>
+        </div>
+
+        <h2>⚡ Infrastructure & Performance Breakthroughs</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/taalas/">Taalas Serves Llama 3.1 8B at 17,000 Tokens/Second</a></div>
+            <div class="item-description">Canadian hardware startup Taalas ships custom silicon that runs Llama 3.1 8B at a staggering 17,000 tokens/second—so fast their demo video looks like a screenshot. Try it at chatjimmy.ai. This represents a new class of specialized LLM hardware optimized for inference speed.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/">ggml.ai Joins Hugging Face for Local AI</a></div>
+            <div class="item-description">Georgi Gerganov, creator of llama.cpp (the tool that made local LLMs viable in March 2023), is joining Hugging Face. His ggml.ai work has had outsized impact on the local model ecosystem, and this acquisition signals Hugging Face's commitment to ensuring long-term progress in running models on consumer hardware.</div>
+        </div>
+
+        <h2>🛠️ Developer Tools & Products</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/git-lrc">git-lrc: Free AI Code Reviews on Commit</a></div>
+            <div class="item-description">New open-source tool provides unlimited AI-powered code reviews that run automatically on every commit. Perfect for catching issues before they reach PR stage.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/keychain-dev">keychains.dev: AI Access to 6,754 APIs (Zero Creds Exposed)</a></div>
+            <div class="item-description">Clever new service lets you give AI agents access to thousands of APIs without exposing your credentials. Solves the dangerous pattern of handing API keys directly to LLMs.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/rork-app-for-ios">Rork Max: AI Website Builder That Replaces Xcode</a></div>
+            <div class="item-description">New iOS app builder claims to be "best AI for iOS apps" with a web interface that bypasses Xcode entirely. Worth watching as no-code/low-code AI tools mature.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/beats/">Simon Willison Adds "Beats" to His Blog</a></div>
+            <div class="item-description">Simon ships a new feature called "beats" that surfaces his activity across platforms—TILs, releases, museum visits, tools, and research—inline on his blog. Nice pattern for aggregating distributed online activity into one timeline.</div>
+        </div>
+
+        <h2>💼 Startup & Funding News</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/inscope-nabs-14-5m-to-solve-the-pain-of-financial-reporting/">InScope Raises $14.5M to Automate Financial Reporting</a></div>
+            <div class="item-description">Founded by accountants from Flexport, Miro, and Hopin, InScope automates the painful process of preparing financial statements. Another example of AI targeting high-friction professional workflows.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/indias-sarvam-launches-indus-ai-chat-app-as-competition-heats-up/">India's Sarvam Launches Indus AI Chat App</a></div>
+            <div class="item-description">Indian AI startup Sarvam releases Indus, a new chat app competing in the increasingly crowded consumer AI space. India's AI ecosystem continues to heat up with local model development.</div>
+        </div>
+
+        <h2>🎯 Worth Noting</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/">AI Super PACs Battle Over Congressional Seat</a></div>
+            <div class="item-description">Anthropic-funded group backs Alex Bores, whose RAISE Act would require AI developers to disclose safety protocols. Dueling pro-AI PACs are now targeting the same New York congressional race—AI policy fights are getting real.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/great-news-for-xai-grok-is-now-pretty-good-at-answering-questions-about-baldurs-gate/">xAI Engineers Pulled Off Projects for Baldur's Gate</a></div>
+            <div class="item-description">Business Insider reports that high-level xAI engineers were redirected from other work to make sure Grok could answer detailed Baldur's Gate 3 questions. Not exactly the AGI roadmap we expected.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/">Recovering Lost Code from Claude Session Logs</a></div>
+            <div class="item-description">Simon shares a neat recovery story: after losing prototype code when his Mac crashed and wiped /tmp, he recovered everything from Claude session logs in ~/.claude/projects/. Good reminder that agent logs can be valuable backups.</div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Saturday, February 21, 2026
+        </div>
+    </div>
+</body>
+</html>

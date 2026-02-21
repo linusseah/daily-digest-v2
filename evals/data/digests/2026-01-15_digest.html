@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .date {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 32px;
+            padding: 16px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #0066cc;
+            line-height: 1.7;
+        }
+        h2 {
+            color: #0066cc;
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .item-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        .item-description {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #888;
+            font-size: 13px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus</h1>
+        <div class="date">Saturday, February 21, 2026</div>
+
+        <div class="intro">
+            <strong>Today's theme: AI infrastructure is growing up.</strong> The conversation is shifting from "what can AI do?" to "how do we build production AI systems?" This week brought jaw-dropping inference speed breakthroughs (17,000 tokens/second!), new abstractions like "Claws" sitting on top of agents, and tooling that makes agentic systems safer and more debuggable. Gemini 3.1 Pro dropped with strong benchmarks, and the developer experience around LLMs is getting noticeably better. The infrastructure layer is maturing fast.
+        </div>
+
+        <h2>🚀 Inference Speed Breakthroughs</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/taalas/#atom-everything">Taalas serves Llama 3.1 8B at 17,000 tokens/second</a></div>
+            <div class="item-description">
+                A new Canadian hardware startup announced custom silicon that runs Llama 3.1 8B at an absurd 17,000 tokens/second. That's so fast their demo looks like a screenshot rather than streaming text. You can try it at chatjimmy.ai. This is a major milestone for local AI inference.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/#atom-everything">OpenAI's GPT-5.3-Codex-Spark gets 30% faster</a></div>
+            <div class="item-description">
+                OpenAI quietly made their coding model 30% faster—now serving at over 1,200 tokens per second. Speed improvements like this compound quickly when you're building agentic workflows that make dozens or hundreds of LLM calls.
+            </div>
+        </div>
+
+        <h2>🤖 Agentic Systems Evolution</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/claws/#atom-everything">Andrej Karpathy on "Claws"—the next layer after agents</a></div>
+            <div class="item-description">
+                Karpathy tweeted about buying a Mac Mini to tinker with "Claws"—a new abstraction layer sitting on top of LLM agents. He's "sus'd to run OpenClaw" but loves the concept. Just like LLM agents were a new layer on top of LLMs, Claws represent the next level up. Worth watching closely.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://tldr.tech/ai/2026-02-20">Cursor ships agent sandboxing for local coding agents</a></div>
+            <div class="item-description">
+                Cursor described their "agent sandboxing" system that lets local coding agents run freely inside a constrained environment and only asks for approval when escaping the sandbox. This is critical infrastructure for making autonomous agents safe and practical in production. Security and trust are becoming table stakes.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://tldr.tech/ai/2026-02-19">LangChain's coding agent jumps from Top 30 to Top 5 via "harness engineering"</a></div>
+            <div class="item-description">
+                LangChain improved their Terminal Bench 2.0 ranking dramatically with just harness changes—no model updates. The goal of a harness is to shape model intelligence for specific tasks. Self-verification and tracing are key. This suggests we're still leaving significant performance on the table with better prompt engineering and scaffolding.
+            </div>
+        </div>
+
+        <h2>🧠 Major Model Releases</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/#atom-everything">Gemini 3.1 Pro launches with strong benchmarks</a></div>
+            <div class="item-description">
+                Google released Gemini 3.1 Pro—priced at half the cost of Claude Opus 4.6 but with similar benchmark scores. They're even boasting about improved SVG animation performance. Now rolling out to Gemini API, AI Studio, Vertex AI, Android Studio, the Gemini app, and NotebookLM. Simon tested it with "Generate an animated SVG" and got solid results.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/lyria-3-by-google-deepmind">Lyria 3 brings music generation to Gemini</a></div>
+            <div class="item-description">
+                Google's Gemini app now integrates Lyria 3, its latest music generation model, letting you create 30-second tracks from text or images in beta. This expands Gemini's multimodal capabilities into consumer-facing music creation. Interesting to watch how generative audio evolves alongside text and images.
+            </div>
+        </div>
+
+        <h2>🛠️ Developer Experience & Tooling</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything">Prompt caching is critical for long-running agents like Claude Code</a></div>
+            <div class="item-description">
+                Thariq Shihipar from Anthropic explained how Claude Code's entire harness is built around prompt caching, which reuses computation from previous roundtrips to dramatically decrease latency and cost. High cache hit rates enable more generous rate limits for subscription plans. They run alerts on cache hit rates like you'd monitor API uptime.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/#atom-everything">Recovering lost code from Claude session logs</a></div>
+            <div class="item-description">
+                Simon hit "parallel agent psychosis" and lost a feature he'd built the day before—couldn't find the branch or worktree anywhere. Turns out he'd been prototyping in /tmp, his computer crashed, and he lost the code... but it was all preserved in ~/.claude/projects/ session logs. He recovered everything using Claude's own logs. This is genuinely useful DX.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/git-lrc">git-lrc: Free, unlimited AI code reviews on every commit</a></div>
+            <div class="item-description">
+                A new tool that runs AI-powered code reviews automatically on commit. Free and unlimited. As AI coding agents write more code, having AI review that code becomes increasingly important. The toolchain is evolving fast.
+            </div>
+        </div>
+
+        <h2>🏢 AI Ecosystem Moves</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything">ggml.ai joins Hugging Face for long-term local AI progress</a></div>
+            <div class="item-description">
+                Georgi Gerganov's ggml.ai (creator of llama.cpp) is joining Hugging Face. It's hard to overstate Gerganov's impact on the local model space—llama.cpp made it possible to run LLMs on consumer hardware back in March 2023. This acquisition ensures the continued progress of local AI infrastructure under Hugging Face's umbrella.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://tldr.tech/ai/2026-02-19">World Labs raises $1B for spatial intelligence</a></div>
+            <div class="item-description">
+                World Labs secured $1 billion from AMD, NVIDIA, and Fidelity to advance spatial intelligence. Their MARBLE product creates cohesive 3D worlds from images, video, or text. This is embodied AI infrastructure—critical for robotics and AR/VR applications. Spatial reasoning is the next frontier.
+            </div>
+        </div>
+
+        <h2>📊 Benchmarks & Capabilities</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/swe-bench/#atom-everything">SWE-bench February 2026 leaderboard update</a></div>
+            <div class="item-description">
+                The official SWE-bench leaderboard just did a fresh run against current-generation models. These results weren't self-reported by labs, which makes them more trustworthy. Always good to see third-party benchmark validation, especially for AI coding capabilities.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://tldr.tech/ai/2026-02-20">ARC-AGI-3: Opus 4.6 vs Gemini 3.1 Pro on reasoning</a></div>
+            <div class="item-description">
+                ARC-AGI-3 measures an AI agent's ability to generalize in novel environments. Opus 4.6 shows better reasoning and memory use than Gemini 3.1 Pro, solving more levels. Current models might solve ARC-AGI-3 with simple memory scaffolds—suggesting we're close to self-improvement or research-agent thresholds within 2 years.
+            </div>
+        </div>
+
+        <h2>🎯 Notable Product Launches</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/keychain-dev">keychains.dev: Give AI access to 6,754+ APIs with zero credentials exposed</a></div>
+            <div class="item-description">
+                A new developer tool that lets AI agents access thousands of APIs without exposing credentials. This solves a real problem for agentic systems that need to orchestrate multiple services. Clean approach to the auth problem for AI agents.
+            </div>
+        </div>
+
+        <h2>🎬 AI in the Wild</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/toy-story-5-takes-aim-at-creepy-ai-toys-im-always-listening/">Toy Story 5 takes aim at AI toys: "I'm always listening"</a></div>
+            <div class="item-description">
+                The new Toy Story movie (out June 19) tackles addictive, AI-enabled tablets and surveillance-heavy toys. Pop culture is starting to grapple with AI's darker implications. Also, Woody is balding now, which feels metaphorically appropriate.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/">Anthropic-funded group backs congressional candidate in AI policy fight</a></div>
+            <div class="item-description">
+                Dueling pro-AI PACs have centered around one New York congressional race: Alex Bores, whose RAISE Act would require AI developers to disclose safety protocols and report serious system misuse. AI policy is getting real, and the battle lines are forming around safety regulation.
+            </div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Saturday, February 21, 2026
+        </div>
+    </div>
+</body>
+</html>

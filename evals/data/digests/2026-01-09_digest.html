@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #111;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            background: #f8f9fa;
+            padding: 16px;
+            border-left: 4px solid #4285f4;
+            margin-bottom: 32px;
+            font-size: 15px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: #111;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .item-title a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+        .item-description {
+            color: #555;
+            font-size: 15px;
+        }
+        .footer {
+            margin-top: 48px;
+            padding-top: 16px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 13px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>☀️ Good morning, Linus</h1>
+    <div class="date">Saturday, February 21, 2026</div>
+    
+    <div class="intro">
+        <strong>Today's theme:</strong> AI is graduating from experimental toy to production infrastructure. Andrej Karpathy is conceptualizing new abstraction layers ("Claws") on top of agents. Google and OpenAI are trading benchmark blows. Hardware startups are building model-specific silicon hitting 17,000 tokens/second. And the local AI ecosystem is consolidating around Hugging Face. The shift from "look what AI can do" to "here's how you run it reliably at scale" is happening in real time.
+    </div>
+
+    <h2>🧩 The Stack is Evolving</h2>
+    
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/21/claws/#atom-everything">Andrej Karpathy introduces "Claws" — a new layer on top of AI agents</a>
+        </div>
+        <div class="item-description">
+            Karpathy tweeted about "Claws" as the next abstraction layer beyond LLM agents, handling orchestration, scheduling, context management, and tool interactions. He's cautious about OpenClaw specifically due to security concerns ("sus'd to run OpenClaw"), but excited about the concept of machines embodying agentic capabilities with users as the physical interface.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything">Prompt caching is the secret sauce behind Claude Code's production agents</a>
+        </div>
+        <div class="item-description">
+            Anthropic engineer Thariq Shihipar explains how long-running agentic products like Claude Code rely on prompt caching to reuse computation across roundtrips, dramatically reducing latency and cost. They've built their entire harness around caching and run alerts on cache hit rates to maintain generous subscription rate limits.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://tldrnewsletter.com">Cursor reveals "agent sandboxing" for safer local coding agents</a>
+        </div>
+        <div class="item-description">
+            Cursor described a sandboxing system that lets local coding agents run freely inside constrained environments, only requesting approval when needed. This addresses one of the key trust barriers for autonomous agent adoption in production workflows.
+        </div>
+    </div>
+
+    <h2>🏆 Model Wars & Benchmarks</h2>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/#atom-everything">Google launches Gemini 3.1 Pro — priced to compete with Opus 4.6</a>
+        </div>
+        <div class="item-description">
+            Gemini 3.1 Pro is now rolling out across Google AI Studio, Vertex AI, and the Gemini app. Pricing undercuts Claude Opus 4.6 by more than half ($2/M input vs Claude's rates) while claiming similar benchmark scores. Notable: 77.1% on ARC-AGI-2 (more than double Gemini 3 Pro's result). Simon Willison tested SVG animation and found improved performance over Gemini 3 Pro.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/#atom-everything">OpenAI's GPT-5.3-Codex-Spark is now 30% faster at 1,200 tokens/second</a>
+        </div>
+        <div class="item-description">
+            OpenAI's Thibault Sottiaux announced a 30% performance improvement to their latest Codex model, now serving at over 1,200 tokens per second. Speed improvements at this scale matter for developer tools and real-time coding assistance.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/19/swe-bench/#atom-everything">SWE-bench February 2026 leaderboard shows current state of coding agents</a>
+        </div>
+        <div class="item-description">
+            The official SWE-bench leaderboard was updated with a fresh run against current-gen models. These are independently verified results (not lab self-reports), providing a clearer picture of where coding agents actually stand on real-world software engineering tasks.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://tldrnewsletter.com">ARC-AGI-3 update: Opus 4.6 outperforms Gemini 3.1 Pro on reasoning</a>
+        </div>
+        <div class="item-description">
+            ARC-AGI-3's new interactive reasoning benchmark shows Opus 4.6 demonstrating better reasoning and memory use than Gemini 3.1 Pro, solving more novel levels. Current models may solve ARC-AGI-3 with simple memory scaffolds, potentially reaching self-improvement thresholds within 2 years.
+        </div>
+    </div>
+
+    <h2>⚡ Infrastructure & Hardware Breakthroughs</h2>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/20/taalas/#atom-everything">Taalas serves Llama 3.1 8B at 17,000 tokens/second with custom silicon</a>
+        </div>
+        <div class="item-description">
+            Canadian startup Taalas announced custom hardware that runs Llama 3.1 8B at a staggering 17,000 tok/s per user — roughly 10x faster than GPU-based inference. Their "model-on-silicon" approach merges storage and computation on a single ASIC chip, eliminating GPU dependency, liquid cooling, and complex infrastructure. Demo available at chatjimmy.ai.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything">ggml.ai (llama.cpp creator) joins Hugging Face to secure local AI's future</a>
+        </div>
+        <div class="item-description">
+            Georgi Gerganov and the ggml.ai team are joining Hugging Face, bringing llama.cpp — the backbone of tools like Ollama and LM Studio — under HF's umbrella. Since llama.cpp made it possible to run LLMs on consumer hardware in March 2023, it's become critical open-source infrastructure. The acquisition aims to ensure sustainability while keeping the projects open-source and community-driven.
+        </div>
+    </div>
+
+    <h2>🛠️ Developer Tools</h2>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://www.producthunt.com/products/keychain-dev">keychains.dev gives AI agents access to 6,754+ APIs with zero credential exposure</a>
+        </div>
+        <div class="item-description">
+            New tool that lets AI agents securely call thousands of APIs without exposing credentials. This solves a key security challenge for agentic applications that need to interact with external services.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://www.producthunt.com/products/git-lrc">git-lrc offers free, unlimited AI code reviews that run on commit</a>
+        </div>
+        <div class="item-description">
+            Automated code review tool that triggers on git commits, providing AI-powered feedback without manual invocation. Another example of AI moving from optional tool to embedded workflow infrastructure.
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://www.producthunt.com/products/lyria-3-by-google-deepmind">Google integrates Lyria 3 music generation into Gemini app</a>
+        </div>
+        <div class="item-description">
+            Gemini can now generate 30-second music tracks from text or images using Lyria 3, Google's latest music generation model. Another frontier model capability moving from research to consumer product.
+        </div>
+    </div>
+
+    <h2>💰 Funding & M&A</h2>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://tldrnewsletter.com">World Labs raises $1B for spatial intelligence and 3D world generation</a>
+        </div>
+        <div class="item-description">
+            World Labs secured $1B from AMD, NVIDIA, and Fidelity to advance spatial intelligence. Their MARBLE product creates cohesive 3D worlds from images, video, or text — positioning for the next wave of AI applications beyond 2D content.
+        </div>
+    </div>
+
+    <h2>📚 Worth a Quick Read</h2>
+
+    <div class="item">
+        <div class="item-title">
+            <a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/#atom-everything">Simon Willison recovered lost prototype code from Claude session logs</a>
+        </div>
+        <div class="item-description">
+            After losing code from a /tmp prototype when his computer crashed, Simon recovered it from ~/.claude/projects/ session logs. A reminder that AI coding assistants are creating unexpected backup mechanisms as a side effect.
+        </div>
+    </div>
+
+    <div class="footer">
+        Generated by Daily Digest v2 · Saturday, February 21, 2026
+    </div>
+</body>
+</html>

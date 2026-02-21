@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Saturday, February 21, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .intro {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+        }
+        h2 {
+            color: #0066cc;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 5px;
+        }
+        .item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .item-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        .item-content {
+            color: #555;
+            font-size: 15px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e5e5;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus</h1>
+        <p class="date">Saturday, February 21, 2026</p>
+
+        <div class="intro">
+            The speed wars have officially begun. While everyone's been obsessing over which model is smartest, the real race is now about inference speed—and we just saw multiple breakthroughs this week. Taalas is serving Llama 3.1 8B at a staggering 17,000 tokens/second on custom hardware, OpenAI made their Codex model 30% faster, and Google dropped Gemini 3.1 Pro with impressive benchmarks. Meanwhile, the dev tools ecosystem is maturing fast: prompt caching is becoming table stakes, agent sandboxing is here, and the local AI movement just got a major boost with ggml.ai joining Hugging Face.
+        </div>
+
+        <h2>⚡ The Speed Wars</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/taalas/#atom-everything">Taalas serves Llama 3.1 8B at 17,000 tokens/second</a></div>
+            <div class="item-content">This Canadian hardware startup just launched custom silicon that runs Llama 3.1 8B at an absurd 17,000 tokens/second. That's so fast their demo video would look like a screenshot. The implications for local inference are massive—this is the kind of speed that makes real-time agentic systems actually viable.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/#atom-everything">OpenAI's GPT-5.3-Codex-Spark now 30% faster at 1,200 tokens/sec</a></div>
+            <div class="item-content">OpenAI quietly announced they've made GPT-5.3-Codex-Spark 30% faster, now serving at over 1,200 tokens per second. Not as dramatic as Taalas, but for a frontier model, this is significant—especially for coding agents where latency matters.</div>
+        </div>
+
+        <h2>🤖 New Model Releases</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/#atom-everything">Gemini 3.1 Pro: Google's latest at half the price of Opus 4.6</a></div>
+            <div class="item-content">Google released Gemini 3.1 Pro with benchmark scores similar to Claude Opus 4.6 but at less than half the price ($2/million input vs Claude's pricing). The model scores 77.1% on ARC-AGI-2, more than doubling Gemini 3 Pro's result. Available now in AI Studio, Vertex AI, the Gemini app, and NotebookLM. Context window unchanged, but Simon notes improved SVG animation performance.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/lyria-3-by-google-deepmind">Lyria 3: Turn photos into custom songs inside Gemini</a></div>
+            <div class="item-content">Google integrated Lyria 3, their latest music generation model, directly into the Gemini app. Users can now create 30-second tracks from text or images in beta. Another example of multimodal capabilities expanding beyond text and code into creative domains.</div>
+        </div>
+
+        <h2>🛠️ AI Agents & Developer Tools</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/claws/#atom-everything">Andrej Karpathy on "Claws": The new layer on top of AI agents</a></div>
+            <div class="item-content">Karpathy tweeted about buying a Mac Mini to experiment with "Claws"—systems that give AI agents direct computer control. He frames it as "a new layer on top of LLMs" just like agents were a layer on top of base models. He's cautious about OpenClaw specifically, but clearly believes this is where things are headed. Worth watching closely.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything">How Claude Code uses prompt caching to enable long-running agents</a></div>
+            <div class="item-content">Anthropic engineer Thariq Shihipar explained how Claude Code is built entirely around prompt caching. By reusing computation from previous roundtrips, they significantly reduce both latency and cost—making long agentic sessions actually affordable. High cache hit rates directly enable more generous rate limits. This is becoming a best practice for any agent harness.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">Cursor ships agent sandboxing for safer local coding agents</div>
+            <div class="item-content">TLDR AI reports that Cursor described an "agent sandboxing" system that lets local coding agents run freely inside constrained environments, only asking for approval when needed. This addresses one of the biggest concerns with autonomous agents—giving them enough freedom to be useful while preventing catastrophic mistakes.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/#atom-everything">Recovering lost code from Claude session logs</a></div>
+            <div class="item-content">Simon shares a relatable story: he'd been hacking on a prototype in /tmp, his computer crashed, and he lost the code—but recovered everything from Claude's session logs in ~/.claude/projects/. A reminder that AI coding assistants are also inadvertent backup systems.</div>
+        </div>
+
+        <h2>🏗️ Infrastructure & Consolidation</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything">ggml.ai joins Hugging Face to secure the future of local AI</a></div>
+            <div class="item-content">Georgi Gerganov's ggml.ai (creator of llama.cpp, which made local LLMs accessible on consumer hardware back in March 2023) is joining Hugging Face. Simon notes this is huge for the local AI ecosystem—ggml's tooling has been foundational, and Hugging Face's backing should ensure long-term sustainability. This matters for anyone building on local inference.</div>
+        </div>
+
+        <h2>🚀 Product Launches & Tools</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/keychain-dev">keychains.dev: Give AI agents access to 6,754+ APIs with zero credentials exposed</a></div>
+            <div class="item-content">New tool on Product Hunt that solves a real problem for AI agents—secure API access. Lets agents interact with thousands of APIs without exposing credentials. This is exactly the kind of infrastructure layer that needs to exist for agentic systems to work in production.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/git-lrc">git-lrc: Free, unlimited AI code reviews that run on commit</a></div>
+            <div class="item-content">Automated AI code reviews on every git commit, free and unlimited. Another example of AI-powered dev tools becoming background infrastructure rather than standalone products.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/beats/#atom-everything">Simon Willison adds "beats" to his blog</a></div>
+            <div class="item-content">Simon just shipped a new feature called "beats" that surfaces his activities across different platforms—TILs, releases, museums, tools, and research—directly in his blog. A nice example of aggregating your digital presence in one place rather than scattering it across platforms.</div>
+        </div>
+
+        <h2>💼 Business & Funding</h2>
+
+        <div class="item">
+            <div class="item-title">SaaS pricing under pressure from AI, but not dead yet</div>
+            <div class="item-content">TLDR Product highlights a reality check: AI will pressure SaaS, but large vendors still hold durable advantages in enterprise infrastructure and proprietary data. The shift is toward hybrid pricing models (combining predictable seats with usage or outcomes) to avoid automation shrinking seat-based revenue. Salesforce is already experimenting with 3+ pricing models for Agentforce.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/inscope-nabs-14-5m-to-solve-the-pain-of-financial-reporting/">InScope raises $14.5M to automate financial reporting</a></div>
+            <div class="item-content">Founded by accountants from Flexport, Miro, Hopin, and Thrive Global, InScope is automating the nightmare of preparing financial statements. Another vertical SaaS play using AI to eliminate manual busywork—watch this space as AI continues eating repetitive knowledge work.</div>
+        </div>
+
+        <h2>🎯 Worth a Quick Look</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/meta-metaverse-leaves-vr-horizon-worlds-mobile/">Meta's metaverse leaves VR, goes "almost exclusively mobile"</a></div>
+            <div class="item-content">Meta is shifting Horizon Worlds to focus almost exclusively on mobile, separating it from the Quest VR platform. A quiet admission that the VR-first metaverse vision isn't panning out as expected. The future might be more screen-based than Zuckerberg imagined.</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/swe-bench/#atom-everything">SWE-bench February 2026 leaderboard update</a></div>
+            <div class="item-content">The official SWE-bench leaderboard just did a full run against current-gen models. Interesting because these are independent benchmark results, not self-reported by labs. Worth checking to see how models actually perform on real software engineering tasks.</div>
+        </div>
+
+        <div class="footer">
+            <p>Generated by Daily Digest v2 · Saturday, February 21, 2026</p>
+            <p>Curated for Linus by Claude</p>
+        </div>
+    </div>
+</body>
+</html>

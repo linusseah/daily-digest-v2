@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Saturday, February 21, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .date {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        .intro {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f5f5f7;
+            border-left: 4px solid #007aff;
+            border-radius: 4px;
+        }
+        h2 {
+            color: #1a1a1a;
+            font-size: 22px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e5e5e7;
+            padding-bottom: 8px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+        .item-title a {
+            color: #007aff;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+        .item-content {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e7;
+            font-size: 13px;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus</h1>
+        <div class="date">Saturday, February 21, 2026</div>
+
+        <div class="intro">
+            AI infrastructure is hitting escape velocity. This week we're seeing not just incremental gains but order-of-magnitude leaps: custom hardware serving models at 17,000 tokens per second, OpenAI pushing GPT-5.3 to 1200 tps, and Google's Gemini 3.1 Pro more than doubling previous benchmark scores. But the real story is the next layer emerging on top—computer-controlling agents that are equal parts exciting and terrifying. As Andrej Karpathy puts it, we're watching a new abstraction layer form in real-time.
+        </div>
+
+        <h2>🚀 The Speed Wars Heat Up</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/taalas/#atom-everything">Taalas Serves Llama 3.1 8B at 17,000 Tokens/Second</a></div>
+            <div class="item-content">
+                This Canadian startup just announced custom hardware that runs Llama 3.1 8B at a staggering 17,000 tps—so fast their demo video would look like a screenshot. They've built a specialized hardware implementation specifically for this model. You can try it at chatjimmy.ai. This is what vertical integration looks like in the LLM era.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/#atom-everything">OpenAI's GPT-5.3-Codex-Spark: 30% Faster, 1200 Tokens/Second</a></div>
+            <div class="item-content">
+                Thibault Sottiaux at OpenAI announced they've made GPT-5.3-Codex-Spark about 30% faster, now serving at over 1200 tokens per second. Performance optimization is becoming a major competitive dimension as we move from "does it work" to "how fast does it work."
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">Google Ships Gemini 3.1 Pro with 77% on ARC-AGI-2</div>
+            <div class="item-content">
+                Google rolled out Gemini 3.1 Pro across the Gemini API, AI Studio, Vertex AI, Android Studio, and NotebookLM. The headline: 77.1% on ARC-AGI-2, more than doubling the previous Gemini 3 Pro result. The model is now available widely, and the benchmark leap signals significant reasoning improvements.
+            </div>
+        </div>
+
+        <h2>🤖 Agents Take the Wheel (Literally)</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/claws/#atom-everything">Claws: The New Layer on Top of LLM Agents</a></div>
+            <div class="item-content">
+                Andrej Karpathy tweeted about "Claws"—specifically OpenClaw, a self-hosted AI agent that takes full control of your computer. People are buying Mac Minis in droves (causing global shortages) to run it. The project has 145k GitHub stars and costs $200-500/month in API fees. Karpathy notes: "Just like LLM agents were a new layer on top of LLMs, Claws are now a new layer on top of agents." It's powerful, viral, and everyone running it is slightly nervous about what they've unleashed.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">Agent Sandboxing Arrives in Production</div>
+            <div class="item-content">
+                Cursor described their "agent sandboxing" system in TLDR this week—letting local coding agents run freely inside constrained environments and only asking for approval when needed. This addresses the control problem: how do you give agents autonomy without giving them carte blanche? Expect more tooling in this vein as computer-using agents go mainstream.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/coasty">Coasty: Computer-Using Agents on Secure Cloud VMs</a></div>
+            <div class="item-content">
+                Speaking of computer-using agents, Coasty launched on Product Hunt this week offering secure cloud VMs that run AI agents forever. The pitch: instead of letting agents loose on your local machine, give them a contained environment in the cloud. This is infrastructure responding to the Claws moment.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">ARC-AGI-3: The New Reasoning Benchmark</div>
+            <div class="item-content">
+                ARC-AGI-3 is an interactive reasoning benchmark designed to measure AI agents' ability to generalize in novel environments. Early results show Opus 4.6 demonstrates better reasoning and memory use than Gemini 3.1 Pro, solving more levels. The TLDR analysis suggests memory scaffolds may be enough for pseudo-continual learning to push us toward "research-agent threshold" within the next 2 years. Worth watching.
+            </div>
+        </div>
+
+        <h2>🛠️ Developer Tools & Infrastructure</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything">ggml.ai Joins Hugging Face</a></div>
+            <div class="item-content">
+                Hugging Face acquired ggml.ai, the team behind llama.cpp. Georgi Gerganov's llama.cpp made it possible to run local LLMs on consumer hardware back in March 2023, and it's hard to overstate the impact—basically kickstarting the entire local AI movement. This acquisition signals consolidation in the local model infrastructure space and ensures long-term development of critical open tooling.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/keychain-dev">keychains.dev: Give AI Access to 6,754 APIs</a></div>
+            <div class="item-content">
+                New on Product Hunt: keychains.dev lets you give AI agents access to 6,754+ APIs with zero credentials exposed. As agents become more capable, secure credential management becomes table stakes. This is solving a real pain point—letting agents interact with external services without handing over your API keys directly.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/claudebin">Claudebin: Export and Share Claude Code Sessions</a></div>
+            <div class="item-content">
+                Export and share your Claude Code sessions as resumable URLs. Simple premise, highly useful for collaboration and debugging. The developer tooling ecosystem around frontier models is maturing fast.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/beats/#atom-everything">Simon Willison Adds "Beats" to His Blog</a></div>
+            <div class="item-content">
+                Simon added a new feature called "beats" (after story beats) to his blog—inline indicators for various activities: TILs, releases, museums, tools, and research papers. It's a clever way to surface activity from across the web without separate posts. Good DX inspiration for anyone building content platforms.
+            </div>
+        </div>
+
+        <h2>💰 Funding & Business</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/inscope-nabs-14-5m-to-solve-the-pain-of-financial-reporting/">InScope Raises $14.5M for Financial Reporting Automation</a></div>
+            <div class="item-content">
+                The startup, founded by accountants from Flexport, Miro, Hopin, and Thrive Global, automates financial statement prep—solving a genuine pain point in enterprise operations. As an aspiring Solutions Architect, watch how they're positioning: not "AI for accounting" but "eliminate the manual work in financial close." That's how you sell into enterprises.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/">Dueling AI Super PACs in New York Congressional Race</a></div>
+            <div class="item-content">
+                Anthropic-backed groups are supporting Alex Bores, whose RAISE Act would require AI developers to disclose safety protocols and report serious system misuse. Meanwhile, rival AI super PACs are attacking him. AI policy is getting real—and messy. The money is starting to flow into shaping regulation.
+            </div>
+        </div>
+
+        <h2>🎯 Also Worth Noting</h2>
+
+        <div class="item">
+            <div class="item-title"><a href="https://techcrunch.com/2026/02/20/apples-ios-26-4-arrives-in-public-beta-with-ai-music-playlists-video-podcasts-and-more/">Apple iOS 26.4 Beta: AI Music Playlists, Video Podcasts, RCS E2EE</a></div>
+            <div class="item-content">
+                iOS 26.4 public beta includes AI-powered playlist generation in Apple Music, support for video podcasts, and end-to-end encryption for RCS messages. Apple continues its slow-and-steady AI integration strategy—useful features, zero hype.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title"><a href="https://www.producthunt.com/products/guideless">Guideless: Create AI-Narrated Software Video Guides</a></div>
+            <div class="item-content">
+                Create AI-narrated software video guides in minutes. Relevant for anyone building documentation or onboarding flows—automate the boring parts while maintaining quality.
+            </div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Saturday, February 21, 2026
+        </div>
+    </div>
+</body>
+</html>

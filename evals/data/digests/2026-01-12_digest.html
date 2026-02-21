@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Saturday, February 21, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .date {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        h2 {
+            color: #2c5282;
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .item-title a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+        .item-description {
+            color: #555;
+            font-size: 15px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 13px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good morning, Linus</h1>
+        <div class="date">Saturday, February 21, 2026</div>
+
+        <div class="intro">
+            The AI infrastructure stack is accelerating toward production-grade maturity. This week's through-line: we're witnessing the transition from "can we build agents?" to "how do we deploy them safely at scale?" Canadian hardware startup Taalas just demonstrated 17,000 tokens/second on custom silicon, while Cursor shipped agent sandboxing and Karpathy coined "Claws" as the orchestration layer above LLM agents. The pieces are coming together.
+        </div>
+
+        <h2>🚀 Hardware Gets Serious</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/20/taalas/">Taalas serves Llama 3.1 8B at 17,000 tokens/second</a>
+            </div>
+            <div class="item-description">
+                Canadian startup Taalas announced custom ASIC hardware that serves Llama 3.1 8B at a staggering 17,000 tokens/second—roughly 10x faster than GPU-based inference. They've "baked" the model directly into silicon using aggressive 3-bit and 6-bit quantization. The HC1 demonstrator runs on a 2.5 kW server with 53 billion transistors, air-cooled, eliminating the infrastructure complexity of GPU clusters. Try the demo at chatjimmy.ai. This signals a broader industry shift toward model-specific custom silicon.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/">GPT-5.3-Codex-Spark is 30% faster at 1,200 tokens/second</a>
+            </div>
+            <div class="item-description">
+                OpenAI's Thibault Sottiaux announced that GPT-5.3-Codex-Spark now serves at over 1,200 tokens per second, a 30% speed improvement. Performance optimizations continue to be a key battleground as labs compete on both capability and latency.
+            </div>
+        </div>
+
+        <h2>🤖 The Agent Orchestration Layer Emerges</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/21/claws/">Andrej Karpathy introduces "Claws"</a>
+            </div>
+            <div class="item-description">
+                Karpathy tweeted about "Claws"—a new abstraction layer on top of LLM agents for orchestration, scheduling, context management, and tool interactions. He's "a bit sus'd" to run OpenClaw (the viral 200k+ GitHub star implementation) but loves the concept. The term signals a shift from raw LLM → agents → now agent orchestration frameworks. OpenClaw's creator Peter Steinberger recently joined OpenAI while keeping the project open-source, reflecting the tension between security concerns and the push for personal AI agents.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://cursor.com/blog/agent-sandboxing">Cursor ships agent sandboxing to make local coding agents safe</a>
+            </div>
+            <div class="item-description">
+                Cursor released their "agent sandboxing" system (v2.5, Feb 17) that lets coding agents run freely inside a constrained environment. Agents only prompt for approval when accessing resources outside the sandbox (like network calls), reducing interruptions by 40%. They use Seatbelt on macOS and Landlock on Linux, with granular network access controls. This addresses "approval fatigue" and makes agentic coding workflows practical for production use.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/">Prompt caching makes Claude Code feasible</a>
+            </div>
+            <div class="item-description">
+                Anthropic's Thariq Shihipar explained how prompt caching enables long-running agentic products like Claude Code. By reusing computation from previous roundtrips, they significantly decrease latency and cost. The entire Claude Code harness is built around maximizing prompt cache hit rates, with alerts on cache performance. High cache hit rates enable more generous rate limits—a key unlock for agentic UX.
+            </div>
+        </div>
+
+        <h2>📊 Model Releases & Benchmarks</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/">Google ships Gemini 3.1 Pro</a>
+            </div>
+            <div class="item-description">
+                Gemini 3.1 Pro is now rolling out to AI Studio, Vertex AI, the Gemini app, and NotebookLM. Pricing remains the same as Gemini 3 Pro ($2/M input, $12/M output under 200k tokens)—less than half the cost of Claude Opus 4.6 with comparable benchmark scores. Notably scored 77.1% on ARC-AGI-2, more than doubling Gemini 3 Pro's result. Google highlighted improved SVG animation performance in the announcement.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/19/swe-bench/">SWE-bench February 2026 leaderboard update</a>
+            </div>
+            <div class="item-description">
+                The official SWE-bench leaderboard refreshed with results not self-reported by labs. The benchmark measures AI's ability to resolve real GitHub issues in Python repos. Fresh data provides an independent view of which models actually perform best on coding tasks.
+            </div>
+        </div>
+
+        <h2>🏗️ Ecosystem Consolidation</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/">ggml.ai joins Hugging Face</a>
+            </div>
+            <div class="item-description">
+                Georgi Gerganov's ggml.ai—the force behind llama.cpp and local model inference—has been acquired by Hugging Face. Gerganov's March 2023 release of llama.cpp made it possible to run LLMs on consumer hardware, fundamentally democratizing local AI. This acquisition signals Hugging Face's commitment to the local AI ecosystem and ensures long-term support for GGML's infrastructure.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/">Anthropic-funded PAC backs candidate targeted by rival AI super PAC</a>
+            </div>
+            <div class="item-description">
+                Dueling pro-AI PACs are centering their fire on Alex Bores' New York congressional bid. Bores introduced the RAISE Act, which would require AI developers to disclose safety protocols and report serious system misuse. This is the first instance of AI policy becoming a hot-button issue in electoral politics, with major AI companies taking sides.
+            </div>
+        </div>
+
+        <h2>🛠️ Developer Tools Wave</h2>
+
+        <div class="item">
+            <div class="item-title">
+                Product Hunt launches: AI coding tools dominate
+            </div>
+            <div class="item-description">
+                <strong><a href="https://www.producthunt.com/products/rork-app-for-ios">Rork Max</a></strong> — "Website that replaces Xcode" for iOS app development using AI. 
+                <strong><a href="https://www.producthunt.com/products/git-lrc">git-lrc</a></strong> — Free, unlimited AI code reviews that run on commit. 
+                <strong><a href="https://www.producthunt.com/products/keychain-dev">keychains.dev</a></strong> — Give AI agents access to 6,754+ APIs with zero credentials exposed. 
+                <strong><a href="https://www.producthunt.com/products/mocode">moCODE</a></strong> — AI coding assistant on mobile for OpenCode/KiloCode Server. The trend is clear: every layer of the dev stack is getting an AI-native rebuild.
+            </div>
+        </div>
+
+        <h2>💼 Quick Hits</h2>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://techcrunch.com/2026/02/20/inscope-nabs-14-5m-to-solve-the-pain-of-financial-reporting/">InScope raises $14.5M to automate financial reporting</a>
+            </div>
+            <div class="item-description">
+                Founded by accountants who worked at Flexport, Miro, Hopin, and Thrive Global, InScope automates the complexities of preparing financial statements. Another vertical AI play attacking painful back-office workflows.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://techcrunch.com/2026/02/20/amazon-dethrones-walmart-as-worlds-biggest-company-by-sales/">Amazon dethrones Walmart as world's biggest company by revenue</a>
+            </div>
+            <div class="item-description">
+                Amazon is now the largest global company by revenue, ending Walmart's decade-long run at the top. Bezos famously studied Sam Walton's strategies when building Amazon. Over the past decade, Amazon's revenue grew at nearly 10x Walmart's pace—2.7 billion monthly visits to Amazon's digital properties vs. Walmart's 10,000+ physical stores globally.
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-title">
+                <a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/">Simon Willison recovers lost code from Claude session logs</a>
+            </div>
+            <div class="item-description">
+                Willison had "parallel agent psychosis" and lost a whole feature he'd built the day before. Turns out he'd been hacking in /tmp, his computer crashed, and the code was gone—but it was preserved in ~/.claude/projects/ session logs. He recovered it from there. A reminder that agentic workflows need better session management and state persistence.
+            </div>
+        </div>
+
+        <div class="footer">
+            Generated by Daily Digest v2 · Saturday, February 21, 2026
+        </div>
+    </div>
+</body>
+</html>

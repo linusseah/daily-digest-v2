@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Digest — Saturday, February 21, 2026</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .intro {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        h2 {
+            font-size: 18px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .item-title a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+        .item-description {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>☀️ Good morning, Linus</h1>
+    <div class="date">Saturday, February 21, 2026</div>
+
+    <div class="intro">
+        The AI stack is evolving vertically. Google's Gemini 3.1 Pro dropped yesterday to challenge Opus 4.6, while beneath the model wars, infrastructure is maturing fast—with custom silicon serving models at 17K tokens/sec, prompt caching becoming standard practice, and agent sandboxing finally addressing security concerns. Meanwhile, a new abstraction layer is emerging above agents: Andrej Karpathy calls them "Claws," computer-using agents that represent the next evolution beyond chatbots. And the ecosystem is consolidating: ggml.ai joined Hugging Face, World Labs raised $1B for spatial intelligence, and the OpenAI alumni network now counts 18 funded startups.
+    </div>
+
+    <h2>🚀 The Model Wars: Gemini 3.1 Pro Enters the Arena</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/">Gemini 3.1 Pro: Google's Latest Salvo</a></div>
+        <div class="item-description">Google's Gemini 3.1 Pro launched with benchmark scores comparable to Claude Opus 4.6 but at less than half the price ($2/M input vs $5/M). Most interesting: it doubled its predecessor's score on ARC-AGI-2 (77.1%), and Simon notes improved SVG animation performance. Now rolling out in AI Studio, Vertex AI, and the Gemini app with the same context window and pricing as before.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/">OpenAI Ships Speed: GPT-5.3-Codex-Spark Now 30% Faster</a></div>
+        <div class="item-description">OpenAI's Thibault Sottiaux announced GPT-5.3-Codex-Spark now serves at over 1,200 tokens per second—a 30% speed improvement. As model capabilities plateau, inference speed is becoming the new battleground. This matters for agentic systems where latency compounds across multi-step workflows.</div>
+    </div>
+
+    <h2>⚡ Next-Gen Infrastructure: Speed & Safety</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/taalas/">Taalas Hardware Serves Llama 3.1 8B at 17,000 Tokens/Second</a></div>
+        <div class="item-description">A new Canadian hardware startup, Taalas, announced custom silicon that runs Llama 3.1 8B at a staggering 17,000 tokens/second—fast enough that a video demo would look like a screenshot. They've productized it at chatjimmy.ai. This is what happens when you build hardware optimized for a specific model architecture rather than general-purpose GPUs.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/">How Prompt Caching Powers Claude Code</a></div>
+        <div class="item-description">Anthropic's Thariq Shihipar revealed how Claude Code's entire harness is built around prompt caching, which reuses computation from previous roundtrips to slash latency and cost. They run alerts on cache hit rates because it directly impacts how generous their subscription rate limits can be. Essential reading for anyone building long-running agentic products.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/">Recovering Lost Code from Claude's Session Logs</a></div>
+        <div class="item-description">Simon shares a relatable moment: losing a whole feature he'd prototyped in /tmp after a crash, then realizing it was all preserved in ~/.claude/projects/ session logs. A reminder that AI coding assistants are creating new backup patterns—and that session logs are becoming critical infrastructure.</div>
+    </div>
+
+    <h2>🤖 The Next Layer: "Claws" and Computer-Using Agents</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/21/claws/">Andrej Karpathy on "Claws"—A New Layer Above LLM Agents</a></div>
+        <div class="item-description">Karpathy introduced the concept of "Claws" as the next abstraction layer: just as LLM agents were a new layer on top of LLMs, Claws are now a new layer on top of agents. He bought a Mac Mini to tinker with them (the Apple store person: "everyone is confused"). OpenClaw has exploded to 200K+ GitHub stars. Karpathy is cautious about running it given security concerns, but he "loves the concept."</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">Agent Sandboxing: Making Local Agents Safe</div>
+        <div class="item-description">From TLDR AI: Cursor described an "agent sandboxing" system that lets local coding agents run freely inside constrained environments, only asking for approval when needed. This is critical infrastructure for making computer-using agents practical—you want the speed of local execution without the risk of an agent rm -rf'ing your home directory.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/coasty">Coasty: Computer-Using Agents on Secure Cloud VMs</a></div>
+        <div class="item-description">New on Product Hunt: Coasty runs computer-using agents on secure cloud VMs that persist forever. It's the cloud equivalent of local sandboxing—give your agent a dedicated environment where it can't break your real machine, and let it run continuously without tying up your laptop.</div>
+    </div>
+
+    <h2>🧱 Strategic Consolidation & The AI Stack</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/">ggml.ai Joins Hugging Face to Secure Local AI's Future</a></div>
+        <div class="item-description">Georgi Gerganov (creator of llama.cpp) and the entire ggml.ai team joined Hugging Face. This consolidates the open-source inference stack: model hosting + distribution (HF) + local inference (llama.cpp) under one roof. Simon notes it's hard to overstate Gerganov's impact—llama.cpp made local LLMs viable back in March 2023, and the GGUF format has become the standard. The team maintains full autonomy over the project while HF provides sustainability.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title">OpenClaw Creator Joins OpenAI</div>
+        <div class="item-description">Peter Steinberger, creator of OpenClaw (the viral computer-using agent with 200K+ stars), joined OpenAI in February. Notably, this wasn't an acquisition—despite multiple billion-dollar offers—and OpenClaw is transitioning to an independent foundation supported by OpenAI. Steinberger chose advancing personal AI agents for everyone over a corporate exit.</div>
+    </div>
+
+    <h2>💰 Funding Rounds & The AI Ecosystem</h2>
+
+    <div class="item">
+        <div class="item-title">World Labs Raises $1B for Spatial Intelligence</div>
+        <div class="item-description">Fei-Fei Li's World Labs secured $1 billion from AMD, NVIDIA, Autodesk, and Fidelity to advance spatial intelligence with Large World Models. Their product MARBLE creates cohesive 3D worlds from images, video, or text. They just announced World API to let developers integrate these capabilities. This is the next frontier beyond 2D language models—AI that understands physical space and can reason about 3D environments.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/20/peak-xv-raises-1-3b-doubles-down-on-ai-as-global-vc-rivalry-in-india-heats-up/">Peak XV Raises $1.3B, Doubles Down on AI in India</a></div>
+        <div class="item-description">Peak XV (formerly Sequoia India) raised $1.3B with most capital targeting India. They're prioritizing AI, fintech, and cross-border bets as global VC competition in India intensifies. Pairs well with TechCrunch's note that 18-24 year-olds account for nearly 50% of ChatGPT usage in India—the demographics and capital are aligning.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://techcrunch.com/2026/02/20/the-openai-mafia-15-of-the-most-notable-startups-founded-by-alumni/">The OpenAI Mafia: 18 Startups Founded by Alumni</a></div>
+        <div class="item-description">TechCrunch mapped the OpenAI diaspora: 18 startups founded by alumni, including top rivals like Anthropic and companies that have raised billions without shipping a product. The talent diffusion from frontier labs is creating an entire ecosystem—and competitive pressure from multiple angles.</div>
+    </div>
+
+    <h2>🛠️ Developer Tools & Product Launches</h2>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/claudebin">Claudebin: Export & Share Claude Code Sessions as Resumable URLs</a></div>
+        <div class="item-description">New tool on Product Hunt: Claudebin lets you export Claude Code sessions and share them as resumable URLs. This solves collaboration and session portability—send someone your entire coding session so they can pick up where you left off or review what the agent did.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://www.producthunt.com/products/keychain-dev">keychains.dev: Give AI Access to 6,754+ APIs with Zero Credentials Exposed</a></div>
+        <div class="item-description">Launching on Product Hunt: keychains.dev provides a secure way to give AI agents access to thousands of APIs without exposing your credentials. As agents gain more autonomy, credential management becomes critical infrastructure—this addresses that gap.</div>
+    </div>
+
+    <div class="item">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Feb/20/beats/">Simon Willison Adds "Beats" to His Blog</a></div>
+        <div class="item-description">Simon shipped a new feature called "beats" (after story beats) that surfaces activity from his other online properties—TILs, releases, museums, tools, and research—directly in his blog timeline. It's a nice UX pattern for aggregating distributed activity into a single narrative feed.</div>
+    </div>
+
+    <div class="footer">
+        Generated by Daily Digest v2 · Saturday, February 21, 2026
+    </div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: #111;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .intro {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            font-size: 15px;
+        }
+        h2 {
+            font-size: 18px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: #111;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        .item {
+            margin-bottom: 20px;
+        }
+        .item-title {
+            font-weight: 600;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .item-title:hover {
+            text-decoration: underline;
+        }
+        .item-description {
+            margin-top: 4px;
+            font-size: 14px;
+            color: #444;
+        }
+        .footer {
+            margin-top: 48px;
+            padding-top: 16px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Good morning, Linus ☀️</h1>
+    <div class="date">Saturday, February 21, 2026</div>
+
+    <div class="intro">
+        The AI stack is layering up fast. This week marks an inflection point: we're no longer just racing to build better models—we're building the infrastructure to make them production-ready. From hardware breakthroughs pushing inference to absurd speeds, to sophisticated agent scaffolding that finally makes autonomous coding assistants viable, to developer tools that treat AI sessions as first-class artifacts. The ecosystem is maturing from research lab to enterprise stack, and it's happening faster than most expected.
+    </div>
+
+    <h2>🚀 The Speed Wars Heat Up</h2>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/21/thibault-sottiaux/#atom-everything" class="item-title">OpenAI's GPT-5.3-Codex-Spark Now 30% Faster</a>
+        <div class="item-description">OpenAI's Thibault Sottiaux announced GPT-5.3-Codex-Spark is now serving at over 1,200 tokens per second after a 30% speed boost. This matters for developer tools where latency is everything—faster inference means more responsive AI coding assistants.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/20/taalas/#atom-everything" class="item-title">Canadian Startup Serves Llama 3.1 8B at 17,000 Tokens/Second</a>
+        <div class="item-description">Taalas just announced custom hardware that runs Llama 3.1 8B at a staggering 17,000 tokens/second—so fast their demo looks like a screenshot. This is the future of local AI: purpose-built silicon optimized for specific models. Try it at chatjimmy.ai.</div>
+    </div>
+
+    <h2>📊 Model Releases & Benchmark Wars</h2>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/19/gemini-31-pro/#atom-everything" class="item-title">Gemini 3.1 Pro: Half the Price, Similar Performance to Opus 4.6</a>
+        <div class="item-description">Google released Gemini 3.1 Pro at $2/million input tokens—less than half the price of Claude Opus 4.6 with comparable benchmarks. TLDR reports it scored 77.1% on ARC-AGI-2, more than doubling its predecessor. Notable: Google specifically boasted about improved SVG animation performance. The model's now available in AI Studio, Vertex AI, Gemini app, and NotebookLM.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/19/swe-bench/#atom-everything" class="item-title">SWE-Bench February 2026: Independent Benchmark Results</a>
+        <div class="item-description">The official SWE-bench leaderboard got a refresh with independent testing of the latest generation models. Notable because these results weren't self-reported by labs—always good to see third-party verification of coding benchmark claims.</div>
+    </div>
+
+    <h2>🤖 AI Agents Get Production Infrastructure</h2>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/21/claws/#atom-everything" class="item-title">Andrej Karpathy on "Claws": A New Layer on Top of LLM Agents</a>
+        <div class="item-description">Karpathy shared thoughts on "Claws" (computer-using AI agents) while buying a Mac Mini to tinker with OpenClaw. His take: just like LLM agents were a new layer on top of LLMs, Claws are now a new layer on top of agents. He's cautious about running OpenClaw specifically but loves the concept.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything" class="item-title">How Prompt Caching Makes Claude Code Feasible</a>
+        <div class="item-description">Thariq Shihipar from Anthropic explained how long-running agentic products like Claude Code depend on prompt caching to reuse computation from previous round-trips, significantly reducing latency and cost. The entire Claude Code harness is built around maximizing cache hit rates—they run alerts on it because high cache hits enable more generous rate limits.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/19/recovering-lost-code/#atom-everything" class="item-title">Lost Code? Check Your Claude Session Logs</a>
+        <div class="item-description">Simon shares a useful tip: after losing prototype code from /tmp after a crash, he recovered everything from ~/.claude/projects/ session logs. Claude Code's logs became his version control backup—an interesting side effect of persistent agent scaffolding.</div>
+    </div>
+
+    <h2>🛠️ Developer Tools for the AI Era</h2>
+
+    <div class="item">
+        <a href="https://www.producthunt.com/products/claudebin" class="item-title">Claudebin: Export Claude Code Sessions as Resumable URLs</a>
+        <div class="item-description">New tool lets you export and share your Claude Code sessions as URLs that others can resume. Treating AI coding sessions as shareable, resumable artifacts is a smart evolution—makes collaboration and debugging much easier.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://www.producthunt.com/products/rork-app-for-ios" class="item-title">Rork Max: "The Website That Replaces Xcode"</a>
+        <div class="item-description">Ambitious claim—an AI-powered tool for iOS development that positions itself as a web-based Xcode replacement. Worth watching to see if AI can actually simplify iOS development workflows.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://www.producthunt.com/products/mocode" class="item-title">moCODE: AI Coding Assistant on Mobile</a>
+        <div class="item-description">AI coding assistant designed for mobile, supporting OpenCode/KiloCode Server. As AI coding tools mature, mobile-first experiences are starting to emerge.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://www.producthunt.com/products/git-lrc" class="item-title">git-lrc: Free, Unlimited AI Code Reviews on Commit</a>
+        <div class="item-description">Automated AI code reviews that run on every commit, free and unlimited. Another example of AI infrastructure becoming table stakes for developer workflows.</div>
+    </div>
+
+    <h2>💰 The OpenAI Diaspora & Funding Landscape</h2>
+
+    <div class="item">
+        <a href="https://techcrunch.com/2026/02/20/the-openai-mafia-15-of-the-most-notable-startups-founded-by-alumni/" class="item-title">18 Startups Founded by OpenAI Alumni</a>
+        <div class="item-description">TechCrunch catalogued the "OpenAI mafia"—18 startups founded by former OpenAI employees. Some became top rivals (Anthropic), others raised billions on investor interest alone without shipping products. The talent diaspora from foundational AI labs is accelerating.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything" class="item-title">ggml.ai Joins Hugging Face</a>
+        <div class="item-description">Georgi Gerganov's ggml.ai is joining Hugging Face. Hard to overstate Gerganov's impact—his March 2023 release of llama.cpp made running local LLMs on consumer hardware possible. This acquisition ensures long-term progress of the local AI movement.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://techcrunch.com/2026/02/20/peak-xv-raises-1-3b-doubles-down-on-ai-as-global-vc-rivalry-in-india-heats-up/" class="item-title">Peak XV Raises $1.3B, Doubles Down on AI</a>
+        <div class="item-description">Peak XV (formerly Sequoia India/SEA) raised $1.3B with most capital targeting India, prioritizing AI, fintech, and cross-border bets. The AI funding arms race is going global.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://techcrunch.com/2026/02/20/inscope-nabs-14-5m-to-solve-the-pain-of-financial-reporting/" class="item-title">InScope Raises $14.5M to Automate Financial Reporting</a>
+        <div class="item-description">Founded by accountants from Flexport, Miro, Hopin, and Thrive Global, InScope automates the tedious work of preparing financial statements. Domain-specific automation tools like this are where AI provides immediate ROI.</div>
+    </div>
+
+    <h2>🎯 Wild Cards</h2>
+
+    <div class="item">
+        <a href="https://techcrunch.com/2026/02/20/great-news-for-xai-grok-is-now-pretty-good-at-answering-questions-about-baldurs-gate/" class="item-title">xAI Pulled Engineers to Make Grok Good at Baldur's Gate Questions</a>
+        <div class="item-description">Business Insider reports high-level xAI engineers were pulled off other projects to ensure Grok could answer detailed questions about the video game Baldur's Gate. Priorities! This is either brilliant domain-specific fine-tuning or a very expensive meme.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://www.producthunt.com/products/google" class="item-title">Google Pomelli: Turn Product Photos into Pro Studio Imagery</a>
+        <div class="item-description">Google's Pomelli turns simple product photos into professional studio imagery instantly. Vertical AI tools for e-commerce are proliferating fast.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://www.producthunt.com/products/lyria-3-by-google-deepmind" class="item-title">Lyria 3: Turn Any Photo or Thought into a Custom Song</a>
+        <div class="item-description">Google DeepMind's Lyria 3 lets you turn photos or thoughts into custom songs inside Gemini. Multimodal generation is getting wild.</div>
+    </div>
+
+    <h2>📝 Worth Noting</h2>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/20/beats/#atom-everything" class="item-title">Simon Willison Adds "Beats" to His Blog</a>
+        <div class="item-description">Simon added a new feature called "beats" to surface his activity across TILs, releases, museums, tools, and research directly on his blog. Smart approach to aggregating diverse content streams in one place.</div>
+    </div>
+
+    <div class="item">
+        <a href="https://simonwillison.net/2026/Feb/19/sponsorship/#atom-everything" class="item-title">Simon Willison Experiments with Blog Sponsorship</a>
+        <div class="item-description">After being resistant to sponsorship, Simon's exploring Troy Hunt's approach: simple text row in the banner, no JavaScript, no cookies. Maintaining credibility while exploring sustainability for independent tech writing.</div>
+    </div>
+
+    <div class="footer">
+        Generated by Daily Digest v2 · Saturday, February 21, 2026
+    </div>
+</body>
+</html>
