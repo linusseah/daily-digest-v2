@@ -13,6 +13,8 @@ jobs:
   generate-digests:
     runs-on: ubuntu-latest
     timeout-minutes: 180  # 3 hours for multiple runs
+    permissions:
+      contents: write  # Allow pushing commits
 
     steps:
       - name: Checkout repo
