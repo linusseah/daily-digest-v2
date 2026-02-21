@@ -136,4 +136,16 @@ def run_judge(date_str: str) -> dict:
     )
 
     import json
-    return json.loads(message.content[0].text)
+    import re
+
+    # Extract JSON from the response, handling markdown code fences
+    response_text = message.content[0].text.strip()
+
+    # Remove markdown code fences if present
+    if response_text.startswith("```"):
+        # Extract content between code fences
+        match = re.search(r'```(?:json)?\s*\n?(.*?)\n?```', response_text, re.DOTALL)
+        if match:
+            response_text = match.group(1).strip()
+
+    return json.loads(response_text)
