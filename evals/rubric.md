@@ -30,13 +30,15 @@ Eight dimensions, each scored 1–5. The rubric is the source of truth — write
 
 *Given the agent has access to 6 known sources (Simon Willison, TLDR, TechCrunch, Product Hunt, Lenny's, Funcheap SF) plus web search via Exa, does the digest draw from a sensibly diverse set rather than over-indexing on one or two? Were the right sources used for the right content?*
 
+**Quantitative thresholds:** Calculate the percentage of items from the single most-used source. A well-balanced digest should have no source contributing more than 40% of total items.
+
 | Score | Meaning |
 |---|---|
-| 5 | Content draws from 4+ sources or source types. No single source dominates. Web search used appropriately to fill gaps. Good balance across RSS and newsletter sources. |
-| 4 | 3-4 sources represented. Minor over-reliance on one source. Web search used where relevant. |
-| 3 | 2-3 sources represented. Noticeable clustering. Source mix could be more varied. |
-| 2 | Content skews heavily toward 1-2 sources. Others are absent or barely represented. |
-| 1 | Effectively a single-source digest. Little evidence of cross-source curation. |
+| 5 | Content draws from 4+ sources. No single source exceeds 30% of items. Web search used appropriately to fill gaps. Good balance across RSS and newsletter sources. |
+| 4 | 3-4 sources represented. One source may contribute up to 40% of items, but others are meaningfully present. Web search used where relevant. |
+| 3 | 2-3 sources represented. One source contributes 40-60% of items. Noticeable clustering but some variety exists. |
+| 2 | Heavy reliance on 1-2 sources. A single source contributes 60-80% of items. Other sources are token gestures. |
+| 1 | Single-source digest. One source contributes 80%+ of items. Little evidence of cross-source curation. |
 
 ## Dimension 4: Signal-to-Noise Ratio (weight: 0.15)
 

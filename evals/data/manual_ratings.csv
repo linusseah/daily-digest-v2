@@ -1,1 +1,21 @@
 digest_date,digest_file,overall_score,interest_priority_adherence_score,summary_quality_score,source_diversity_score,signal_to_noise_score,theme_and_editorial_voice_score,content_freshness_score,source_failure_recovery_score,novelty_score,notes
+19/2/26,2026-02-19_digest.html,4.56,5,5,4,5,5,5,5,3,"one section on the changing nature of coding seemed to demonstrate diversity of sources on the surface, but actually most of the links here were taken from the Simon Willison blog where he was reference other people. Where possible, could just directly reference the direct source reference instead of indirectly referencing it.
+
+perhaps we should raise the novelty score slightly. Might also be better if agent is able to reference past digests within the last 2 days to check if any material that was prevoiusly curated is repeated in the current digest (in this case things like world lab raising funds was repeated from the previous day)"
+17/2/26,2026-02-17_digest.html,2.875,2.5,5,2.5,2.5,2.5,2.5,2.5,2.5,this was an anomaly though because the tools failed to be activated
+18/2/26,2026-02-18_digest.html,4.71,5,5,5,5,5,5,5,3,
+20/2/26,2026-02-20_digest.html,4.36,5,5,4,5,5,3,5,3,"repeated rodney, repeated martin fowler LLM eating specialty skills"
+1/1/26,2026-01-01_digest.html,3.54,3,5,2,5,5,3,5,2,80% of the content was just taken from Simon Willison. The other 20% from product hunt and tech crunch
+2/1/26,2026-01-02_digest.html,3.54,3,5,2,5,5,3,5,2,same problem as above
+3/1/26,2026-01-03_digest.html,3.56,3,5,2,5,5,3,5,3,
+4/1/26,2026-01-04_digest.html,3.54,3,5,2,5,5,3,5,2,
+5/1/26,2026-01-05_digest.html,3.54,3,5,2,5,5,3,5,2,
+7/1/26,2026-01-07_digest.html,3.54,3,5,2,5,5,3,5,2,
+8/1/26,2026-01-08_digest.html,3.54,3,5,2,5,5,3,5,2,
+9/1/26,2026-01-09_digest.html,3.54,3,5,2,5,5,3,5,2,
+11/1/26,2026-01-11_digest.html,3.54,3,5,2,5,5,3,5,2,
+12/1/26,2026-01-12_digest.html,3.54,3,5,2,5,5,3,5,2,
+14/1/26,2026-01-14_digest.html,3.54,3,5,2,5,5,3,5,2,
+15/1/26,2026-01-15_digest.html,3.54,3,5,2,5,5,3,5,2,
+16/1/26,2026-01-16_digest.html,3.54,3,5,2,5,5,3,5,2,
+21/2/26,2026-02-21_digest.html,3.54,3,5,2,5,5,3,5,2,
