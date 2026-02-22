@@ -1,0 +1,122 @@
+name: Re-score on Push Trigger
+
+on:
+  push:
+    paths:
+      - '.github/TRIGGER_RESCORE.txt'
+
+jobs:
+  rescore:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Read dates from trigger file
+        id: read_dates
+        run: |
+          DATES=$(cat .github/TRIGGER_RESCORE.txt)
+          echo "dates=$DATES" >> $GITHUB_OUTPUT
+          echo "Will re-score: $DATES"
+
+      - name: Remove old scores for selected dates
+        run: |
+          cp evals/data/scores.csv evals/data/scores.csv.backup
+
+          DATES="${{ steps.read_dates.outputs.dates }}"
+          IFS=',' read -ra DATE_ARRAY <<< "$DATES"
+
+          # Build grep pattern
+          PATTERN=""
+          for date in "${DATE_ARRAY[@]}"; do
+            IFS='-' read -r year month day <<< "$date"
+            csv_date="${day#0}/${month#0}/${year:2}"
+            if [ -z "$PATTERN" ]; then
+              PATTERN="^${csv_date},"
+            else
+              PATTERN="${PATTERN}\|^${csv_date},"
+            fi
+          done
+
+          grep -v "$PATTERN" evals/data/scores.csv.backup > evals/data/scores.csv || true
+          echo "Removed scores for dates: $DATES"
+
+      - name: Re-score digests
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          cat > /tmp/score_specific.py << 'EOFPYTHON'
+import sys
+sys.path.insert(0, 'evals')
+from judge_prompt import run_judge
+from scoring_pipeline import append_score, load_log_metadata, DIMENSIONS
+from datetime import datetime
+
+date_str = sys.argv[1]
+print(f"Scoring {date_str}...", flush=True)
+
+try:
+    result = run_judge(date_str)
+    log_meta = load_log_metadata(date_str)
+
+    row = {
+        "digest_date": date_str,
+        "digest_file": f"{date_str}_digest.html",
+        "overall_score": result["overall_score"],
+        "top_issue": result["top_issue"],
+        "top_strength": result["top_strength"],
+        "overall_summary": result["overall_summary"],
+        "judged_at": datetime.utcnow().isoformat(),
+        **log_meta,
+    }
+    for dim in DIMENSIONS:
+        row[f"{dim}_score"] = result["scores"][dim]["score"]
+        row[f"{dim}_explanation"] = result["scores"][dim]["explanation"]
+
+    append_score(row)
+    print(f"✓ Scored {date_str}: overall={result['overall_score']:.1f}/5, source_diversity={result['scores']['source_diversity']['score']}/5")
+except Exception as e:
+    print(f"✗ Failed to score {date_str}: {e}")
+    sys.exit(1)
+EOFPYTHON
+
+          DATES="${{ steps.read_dates.outputs.dates }}"
+          IFS=',' read -ra DATE_ARRAY <<< "$DATES"
+          for date in "${DATE_ARRAY[@]}"; do
+            python /tmp/score_specific.py "$date" || echo "Failed to score $date"
+          done
+
+      - name: Commit updated scores
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add evals/data/scores.csv
+          git diff --staged --quiet || git commit -m "Re-score digests with updated rubric: ${{ steps.read_dates.outputs.dates }} [skip ci]"
+
+          # Remove trigger file
+          git rm .github/TRIGGER_RESCORE.txt
+          git commit -m "Remove rescore trigger [skip ci]"
+
+          git push
+
+      - name: Upload scores as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: updated-scores
+          path: evals/data/scores.csv
