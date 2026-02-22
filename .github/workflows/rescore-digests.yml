@@ -1,0 +1,81 @@
+name: Re-score Digests with Updated Rubric
+
+on:
+  workflow_dispatch:
+    inputs:
+      dates:
+        description: 'Comma-separated dates to re-score (e.g., 2026-01-01,2026-01-02)'
+        required: true
+        type: string
+
+jobs:
+  rescore:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Remove old scores for selected dates
+        run: |
+          cp evals/data/scores.csv evals/data/scores.csv.backup
+
+          # Parse dates from input
+          IFS=',' read -ra DATES <<< "${{ github.event.inputs.dates }}"
+
+          # Build grep pattern to exclude these dates
+          PATTERN=""
+          for date in "${DATES[@]}"; do
+            # Convert YYYY-MM-DD to D/M/YY format for CSV matching
+            IFS='-' read -r year month day <<< "$date"
+            # Remove leading zeros and format
+            csv_date="${day#0}/${month#0}/${year:2}"
+            if [ -z "$PATTERN" ]; then
+              PATTERN="^${csv_date},"
+            else
+              PATTERN="${PATTERN}\|^${csv_date},"
+            fi
+          done
+
+          # Remove matching lines
+          grep -v "$PATTERN" evals/data/scores.csv.backup > evals/data/scores.csv || true
+
+          echo "Removed scores for dates: ${{ github.event.inputs.dates }}"
+          echo "Lines removed: $(comm -13 <(wc -l < evals/data/scores.csv) <(wc -l < evals/data/scores.csv.backup))"
+
+      - name: Re-score digests
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Score only the digests we removed
+          IFS=',' read -ra DATES <<< "${{ github.event.inputs.dates }}"
+          for date in "${DATES[@]}"; do
+            echo "Re-scoring $date..."
+            python evals/scoring_pipeline.py --limit 1 || echo "Failed to score $date"
+          done
+
+      - name: Commit updated scores
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add evals/data/scores.csv
+          git diff --staged --quiet || git commit -m "Re-score digests with updated rubric: ${{ github.event.inputs.dates }} [skip ci]"
+          git push
+
+      - name: Upload scores as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: updated-scores
+          path: evals/data/scores.csv
