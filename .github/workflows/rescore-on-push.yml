@@ -59,46 +59,8 @@ jobs:
           GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: |
-          cat > /tmp/score_specific.py << 'EOFPYTHON'
-import sys
-sys.path.insert(0, 'evals')
-from judge_prompt import run_judge
-from scoring_pipeline import append_score, load_log_metadata, DIMENSIONS
-from datetime import datetime
-
-date_str = sys.argv[1]
-print(f"Scoring {date_str}...", flush=True)
-
-try:
-    result = run_judge(date_str)
-    log_meta = load_log_metadata(date_str)
-
-    row = {
-        "digest_date": date_str,
-        "digest_file": f"{date_str}_digest.html",
-        "overall_score": result["overall_score"],
-        "top_issue": result["top_issue"],
-        "top_strength": result["top_strength"],
-        "overall_summary": result["overall_summary"],
-        "judged_at": datetime.utcnow().isoformat(),
-        **log_meta,
-    }
-    for dim in DIMENSIONS:
-        row[f"{dim}_score"] = result["scores"][dim]["score"]
-        row[f"{dim}_explanation"] = result["scores"][dim]["explanation"]
-
-    append_score(row)
-    print(f"✓ Scored {date_str}: overall={result['overall_score']:.1f}/5, source_diversity={result['scores']['source_diversity']['score']}/5")
-except Exception as e:
-    print(f"✗ Failed to score {date_str}: {e}")
-    sys.exit(1)
-EOFPYTHON
-
-          DATES="${{ steps.read_dates.outputs.dates }}"
-          IFS=',' read -ra DATE_ARRAY <<< "$DATES"
-          for date in "${DATE_ARRAY[@]}"; do
-            python /tmp/score_specific.py "$date" || echo "Failed to score $date"
-          done
+          IFS=',' read -ra DATES <<< "${{ steps.read_dates.outputs.dates }}"
+          python evals/scripts/rescore_specific.py "${DATES[@]}"
 
       - name: Commit updated scores
         run: |
