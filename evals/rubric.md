@@ -90,12 +90,14 @@ Eight dimensions, each scored 1–5. The rubric is the source of truth — write
 
 ## Dimension 8: Novelty (weight: 0.02)
 
-*Does the digest surface anything the reader is unlikely to have already seen — a non-obvious source, an underreported angle, or a fresh take — rather than just aggregating the day's most-forwarded posts?*
+*Does the digest surface anything the reader is unlikely to have already seen — a non-obvious source, an underreported angle, or a fresh take — rather than just aggregating the day's most-forwarded posts? Also considers whether items were already featured in the previous 1-2 digests.*
+
+**Repetition penalty:** Check if any items (same story/development) appeared in the past 2 days' digests. Each repeated item reduces the score by 1 point.
 
 | Score | Meaning |
 |---|---|
-| 5 | Several items feel genuinely non-obvious. At least one "hidden gem" the reader probably didn't see elsewhere. |
-| 4 | A few non-obvious picks. Mostly solid if familiar, with pleasant surprises. |
-| 3 | Mostly covers the expected stories. Little curation edge over a standard news feed. |
-| 2 | Everything here was already in the reader's Twitter/X feed before this digest ran. |
-| 1 | The digest is a pure rehash of trending posts. No discovery value. |
+| 5 | Several items feel genuinely non-obvious. At least one "hidden gem" the reader probably didn't see elsewhere. No repetition from recent digests (past 2 days). |
+| 4 | A few non-obvious picks. Mostly solid if familiar, with pleasant surprises. At most 1 item repeated from past 2 days with meaningful new development. |
+| 3 | Mostly covers the expected stories. Little curation edge over a standard news feed. May include 1-2 repeated items from recent digests without new angles. |
+| 2 | Everything here was already in the reader's Twitter/X feed before this digest ran. Or contains 3+ repeated items from past 2 days. |
+| 1 | The digest is a pure rehash of trending posts. No discovery value. Or heavily duplicates content from yesterday's digest (4+ repeated items). |

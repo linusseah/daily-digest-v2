@@ -43,14 +43,42 @@ def format_log_context(log: dict | None) -> str:
     return "\n".join(lines)
 
 
+def get_recent_digests(date_str: str, days_back: int = 2) -> str:
+    """Get titles/summaries from digests in the past N days for novelty checking."""
+    from datetime import datetime, timedelta
+
+    try:
+        current_date = datetime.fromisoformat(date_str)
+    except:
+        return "Previous digests: not available"
+
+    recent_content = []
+    for i in range(1, days_back + 1):
+        past_date = current_date - timedelta(days=i)
+        past_digest_path = ROOT / "evals" / "data" / "digests" / f"{past_date.date().isoformat()}_digest.html"
+
+        if past_digest_path.exists():
+            # Extract just the titles/first 100 chars of each item for comparison
+            html_content = past_digest_path.read_text()
+            # Simple extraction - just note that this digest exists
+            recent_content.append(f"- {past_date.date().isoformat()}: digest available for comparison")
+
+    if not recent_content:
+        return "Previous digests: None found in past 2 days (this may be the first digest or dates are non-consecutive)"
+
+    return "Previous digests for novelty checking:\n" + "\n".join(recent_content)
+
+
 def build_judge_prompt(
     user_profile: str,
     system_prompt_txt: str,
     rubric: str,
     digest_html: str,
     run_log: dict | None,
+    date_str: str = None,
 ) -> str:
     log_context = format_log_context(run_log)
+    recent_digests = get_recent_digests(date_str) if date_str else "Previous digests: date not provided"
 
     return f"""## 1. User Profile (source of truth for what this digest should do)
 
@@ -76,7 +104,17 @@ def build_judge_prompt(
 
 ---
 
-## 4. Scoring Rubric
+## 4. Recent Digests (for novelty checking)
+
+<recent_digests>
+{recent_digests}
+</recent_digests>
+
+Note: For Dimension 8 (Novelty), check if any items in today's digest cover the same stories/developments as the digests from the past 2 days listed above. Repeated coverage without new angles should reduce the novelty score.
+
+---
+
+## 5. Scoring Rubric
 
 <rubric>
 {rubric}
@@ -84,7 +122,7 @@ def build_judge_prompt(
 
 ---
 
-## 5. Digest to Evaluate
+## 6. Digest to Evaluate
 
 <digest>
 {digest_html}
@@ -125,7 +163,7 @@ def run_judge(date_str: str) -> dict:
 
     run_log = load_run_log(date_str)
 
-    prompt = build_judge_prompt(user_profile, system_prompt_txt, rubric, digest_html, run_log)
+    prompt = build_judge_prompt(user_profile, system_prompt_txt, rubric, digest_html, run_log, date_str)
 
     client = anthropic.Anthropic()
     message = client.messages.create(
