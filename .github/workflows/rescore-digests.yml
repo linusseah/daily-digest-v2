@@ -56,12 +56,50 @@ jobs:
       - name: Re-score digests
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: |
-          # Score only the digests we removed
+          # Create a temporary scoring script for specific dates
+          cat > /tmp/score_specific.py << 'EOFPYTHON'
+import sys
+sys.path.insert(0, 'evals')
+from judge_prompt import run_judge
+from scoring_pipeline import append_score, load_log_metadata, DIMENSIONS
+from datetime import datetime
+
+date_str = sys.argv[1]
+print(f"Scoring {date_str}...", flush=True)
+
+try:
+    result = run_judge(date_str)
+    log_meta = load_log_metadata(date_str)
+
+    row = {
+        "digest_date": date_str,
+        "digest_file": f"{date_str}_digest.html",
+        "overall_score": result["overall_score"],
+        "top_issue": result["top_issue"],
+        "top_strength": result["top_strength"],
+        "overall_summary": result["overall_summary"],
+        "judged_at": datetime.utcnow().isoformat(),
+        **log_meta,
+    }
+    for dim in DIMENSIONS:
+        row[f"{dim}_score"] = result["scores"][dim]["score"]
+        row[f"{dim}_explanation"] = result["scores"][dim]["explanation"]
+
+    append_score(row)
+    print(f"✓ Scored {date_str}: overall={result['overall_score']:.1f}/5")
+except Exception as e:
+    print(f"✗ Failed to score {date_str}: {e}")
+    sys.exit(1)
+EOFPYTHON
+
+          # Score each date individually
           IFS=',' read -ra DATES <<< "${{ github.event.inputs.dates }}"
           for date in "${DATES[@]}"; do
-            echo "Re-scoring $date..."
-            python evals/scoring_pipeline.py --limit 1 || echo "Failed to score $date"
+            python /tmp/score_specific.py "$date" || echo "Failed to score $date"
           done
 
       - name: Commit updated scores
