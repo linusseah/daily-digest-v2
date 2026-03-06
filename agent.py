@@ -77,7 +77,7 @@ async def run_agent(system_prompt: str, model: str) -> tuple[str, list[dict]]:
         prompt=system_prompt,
         options=ClaudeAgentOptions(
             allowed_tools=["Bash", "Read", "Write"],
-            permission_mode="acceptAll",
+            permission_mode="bypassPermissions",
             model=model,
             cwd=str(ROOT),
         ),
