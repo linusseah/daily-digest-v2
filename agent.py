@@ -76,8 +76,8 @@ async def run_agent(system_prompt: str, model: str) -> tuple[str, list[dict]]:
     async for message in query(
         prompt=system_prompt,
         options=ClaudeAgentOptions(
-            allowed_tools=["Bash", "Read"],
-            permission_mode="acceptEdits",
+            allowed_tools=["Bash", "Read", "Write"],
+            permission_mode="acceptAll",
             model=model,
             cwd=str(ROOT),
         ),
