@@ -2,8 +2,8 @@ name: Daily Digest v2
 
 on:
   schedule:
-    # 15:00 UTC = 7:00 AM PST. In PDT (summer) change to 14:00 UTC.
-    - cron: "0 15 * * *"
+    # 23:00 UTC = 7:00 AM SGT (SGT is UTC+8 year-round, no DST).
+    - cron: "0 23 * * *"
   workflow_dispatch:  # manual trigger from Actions tab
 
 jobs:
