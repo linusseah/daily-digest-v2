@@ -5,7 +5,8 @@ Usage:
     python tools/send_email.py <html_file> "<subject>"
     python tools/send_email.py <html_file> "<subject>" --dry-run
 
-Env vars required: GMAIL_ADDRESS, GMAIL_APP_PASS, DIGEST_TO (optional, defaults to GMAIL_ADDRESS)
+Env vars required: GMAIL_ADDRESS, GMAIL_APP_PASS
+DIGEST_TO (optional, defaults to GMAIL_ADDRESS) — comma-separated for multiple recipients
 
 Output: JSON {success: bool, message: str} to stdout.
 Exit 0 on success, 1 on failure.
@@ -22,21 +23,21 @@ from email.mime.text import MIMEText
 def send_email(html_body: str, subject: str, dry_run: bool = False) -> dict:
     gmail_address = os.environ["GMAIL_ADDRESS"]
     gmail_app_pass = os.environ["GMAIL_APP_PASS"]
-    to_address = os.environ.get("DIGEST_TO") or gmail_address
+    to_addresses = [a.strip() for a in (os.environ.get("DIGEST_TO") or gmail_address).split(",") if a.strip()]
 
     if dry_run:
-        return {"success": True, "message": f"[DRY RUN] Would send to {to_address}: {subject}"}
+        return {"success": True, "message": f"[DRY RUN] Would send to {', '.join(to_addresses)}: {subject}"}
 
     msg = MIMEText(html_body, "html")
     msg["Subject"] = subject
     msg["From"] = f"Daily Digest <{gmail_address}>"
-    msg["To"] = to_address
+    msg["To"] = ", ".join(to_addresses)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=15) as server:
         server.login(gmail_address, gmail_app_pass)
-        server.sendmail(gmail_address, [to_address], msg.as_string())
+        server.sendmail(gmail_address, to_addresses, msg.as_string())
 
-    return {"success": True, "message": f"Email sent to {to_address} via Gmail SMTP"}
+    return {"success": True, "message": f"Email sent to {', '.join(to_addresses)} via Gmail SMTP"}
 
 
 def main() -> None:

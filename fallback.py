@@ -202,15 +202,17 @@ def build_html(sections: dict, fallback_note: bool = True) -> str:
 
 
 def send_email(subject: str, html: str) -> None:
+    to_addresses = [a.strip() for a in DIGEST_TO.split(",") if a.strip()]
+
     msg = MIMEText(html, "html")
     msg["Subject"] = subject
     msg["From"] = f"Daily Digest <{GMAIL_ADDRESS}>"
-    msg["To"] = DIGEST_TO
+    msg["To"] = ", ".join(to_addresses)
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=15) as server:
         server.login(GMAIL_ADDRESS, GMAIL_APP_PASS)
-        server.sendmail(GMAIL_ADDRESS, [DIGEST_TO], msg.as_string())
-    print(f"  Fallback email sent to {DIGEST_TO} via Gmail SMTP")
+        server.sendmail(GMAIL_ADDRESS, to_addresses, msg.as_string())
+    print(f"  Fallback email sent to {', '.join(to_addresses)} via Gmail SMTP")
 
 
 # ---------------------------------------------------------------------------
