@@ -10,8 +10,7 @@ Usage:
 
 Env vars required:
     ANTHROPIC_API_KEY
-    GMAIL_ADDRESS, GMAIL_APP_PASS     (for IMAP fetching)
-    RESEND_API_KEY                    (for email sending)
+    GMAIL_ADDRESS, GMAIL_APP_PASS     (for IMAP fetching and SMTP sending)
     DIGEST_TO                         (recipient, optional — defaults to GMAIL_ADDRESS)
     BRAVE_SEARCH_API_KEY              (optional — falls back to DuckDuckGo)
 """
@@ -40,7 +39,7 @@ HTML_OUTPUT = Path("/tmp/digest-v2.html")
 
 
 def validate_env() -> None:
-    required = ["ANTHROPIC_API_KEY", "GMAIL_ADDRESS", "GMAIL_APP_PASS", "RESEND_API_KEY"]
+    required = ["ANTHROPIC_API_KEY", "GMAIL_ADDRESS", "GMAIL_APP_PASS"]
     missing = [k for k in required if not os.environ.get(k)]
     if missing:
         print(f"ERROR: Missing required environment variables: {', '.join(missing)}", file=sys.stderr)

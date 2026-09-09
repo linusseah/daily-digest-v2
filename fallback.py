@@ -18,7 +18,8 @@ import datetime
 import argparse
 import time
 import feedparser
-import requests
+import smtplib
+from email.mime.text import MIMEText
 from bs4 import BeautifulSoup
 from pathlib import Path
 import anthropic
@@ -28,7 +29,6 @@ import anthropic
 # ---------------------------------------------------------------------------
 
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
-RESEND_API_KEY    = os.environ["RESEND_API_KEY"]
 GMAIL_ADDRESS     = os.environ["GMAIL_ADDRESS"]
 GMAIL_APP_PASS    = os.environ["GMAIL_APP_PASS"]
 DIGEST_TO         = os.environ.get("DIGEST_TO", GMAIL_ADDRESS)
@@ -202,15 +202,15 @@ def build_html(sections: dict, fallback_note: bool = True) -> str:
 
 
 def send_email(subject: str, html: str) -> None:
-    resp = requests.post(
-        "https://api.resend.com/emails",
-        headers={"Authorization": f"Bearer {RESEND_API_KEY}", "Content-Type": "application/json"},
-        json={"from": "Daily Digest <onboarding@resend.dev>", "to": [DIGEST_TO],
-              "subject": subject, "html": html},
-        timeout=15,
-    )
-    resp.raise_for_status()
-    print(f"  Fallback email sent — status {resp.status_code}")
+    msg = MIMEText(html, "html")
+    msg["Subject"] = subject
+    msg["From"] = f"Daily Digest <{GMAIL_ADDRESS}>"
+    msg["To"] = DIGEST_TO
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=15) as server:
+        server.login(GMAIL_ADDRESS, GMAIL_APP_PASS)
+        server.sendmail(GMAIL_ADDRESS, [DIGEST_TO], msg.as_string())
+    print(f"  Fallback email sent to {DIGEST_TO} via Gmail SMTP")
 
 
 # ---------------------------------------------------------------------------

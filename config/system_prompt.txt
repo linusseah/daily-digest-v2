@@ -14,7 +14,7 @@ You have access to these CLI tools via Bash:
   Searches the web. Returns JSON array: [{title, url, description}]
 
 - `python tools/send_email.py /tmp/digest-v2.html "<subject>"`
-  Sends the digest email via Resend. Use --dry-run to skip actual send.
+  Sends the digest email via Gmail SMTP. Use --dry-run to skip actual send.
 
 - `python tools/write_log.py '<json>'`
   Saves run metadata to logs/YYYY-MM-DD.json.

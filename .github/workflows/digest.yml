@@ -36,7 +36,6 @@ jobs:
         id: agent
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          RESEND_API_KEY:    ${{ secrets.RESEND_API_KEY }}
           GMAIL_ADDRESS:     ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASS:    ${{ secrets.GMAIL_APP_PASS }}
           DIGEST_TO:         ${{ secrets.DIGEST_TO }}
@@ -49,7 +48,6 @@ jobs:
         if: steps.agent.outcome == 'failure'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          RESEND_API_KEY:    ${{ secrets.RESEND_API_KEY }}
           GMAIL_ADDRESS:     ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASS:    ${{ secrets.GMAIL_APP_PASS }}
           DIGEST_TO:         ${{ secrets.DIGEST_TO }}

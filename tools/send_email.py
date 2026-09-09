@@ -5,7 +5,7 @@ Usage:
     python tools/send_email.py <html_file> "<subject>"
     python tools/send_email.py <html_file> "<subject>" --dry-run
 
-Env vars required: RESEND_API_KEY, DIGEST_TO (or GMAIL_ADDRESS as fallback)
+Env vars required: GMAIL_ADDRESS, GMAIL_APP_PASS, DIGEST_TO (optional, defaults to GMAIL_ADDRESS)
 
 Output: JSON {success: bool, message: str} to stdout.
 Exit 0 on success, 1 on failure.
@@ -15,32 +15,28 @@ import sys
 import os
 import json
 import argparse
-import requests
+import smtplib
+from email.mime.text import MIMEText
 
 
 def send_email(html_body: str, subject: str, dry_run: bool = False) -> dict:
-    resend_key = os.environ["RESEND_API_KEY"]
-    to_address = os.environ.get("DIGEST_TO") or os.environ["GMAIL_ADDRESS"]
+    gmail_address = os.environ["GMAIL_ADDRESS"]
+    gmail_app_pass = os.environ["GMAIL_APP_PASS"]
+    to_address = os.environ.get("DIGEST_TO") or gmail_address
 
     if dry_run:
         return {"success": True, "message": f"[DRY RUN] Would send to {to_address}: {subject}"}
 
-    resp = requests.post(
-        "https://api.resend.com/emails",
-        headers={
-            "Authorization": f"Bearer {resend_key}",
-            "Content-Type": "application/json",
-        },
-        json={
-            "from":    "Daily Digest <onboarding@resend.dev>",
-            "to":      [to_address],
-            "subject": subject,
-            "html":    html_body,
-        },
-        timeout=15,
-    )
-    resp.raise_for_status()
-    return {"success": True, "message": f"Email sent to {to_address} — status {resp.status_code}"}
+    msg = MIMEText(html_body, "html")
+    msg["Subject"] = subject
+    msg["From"] = f"Daily Digest <{gmail_address}>"
+    msg["To"] = to_address
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=15) as server:
+        server.login(gmail_address, gmail_app_pass)
+        server.sendmail(gmail_address, [to_address], msg.as_string())
+
+    return {"success": True, "message": f"Email sent to {to_address} via Gmail SMTP"}
 
 
 def main() -> None:
